@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body, .main-container, .container {
+    scroll-behavior: smooth;
+}
+
+li {
+    list-style: none;
+    transition: all 0.4s;
+    z-index: 15;
+}
+li:hover {
+    transform: scale(1.1);
+}
+
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+h1 {
+    font-size: 70px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 10px
+}
+
+h3 {
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: lighter;
+}
+
+p {
+    margin-top: 30px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #ecf0f1;
+    letter-spacing: 5px;
+}
+.btn:hover{
+    transform: scale(0.97);
+    background-color:  #95a5a6;
+}
+
+img {
+    width: 50%;
+}
+
+.img-one {
+    margin-top: 100px;
+}
+
+.img-two {
+    margin-top: 100px;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.main-container:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+
+#logo {
+    border: 1px solid black;
+    padding: 0 15px;
+}
+
+.main-nav {
+    position: fixed;
+    display: flex;
+    padding: 2em 4em;
+    z-index: 12;
+}
+
+.main-nav .ul-two {
+    position: fixed;
+    display: flex;
+    right: 4em;
+}
+
+.main-nav .ul-two li {
+    margin-left: 1.5em;
+}
+
+.main-nav .ul-two #border {
+    border: 1px solid black;
+    padding: 0 15px;
+    align-items: center;
+}
+
+.container {
+    width: 400vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.container .home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8em;
+}
+
+.container .home .image {
+    width: 400px;
+    height: 600px;
+}
+
+.content {
+    margin-top: 50px;
+    margin-right: 100px;
+    text-align: center;
+    z-index: 10;
+}
+
+.main-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
