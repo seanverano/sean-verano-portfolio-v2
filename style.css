@@ -149,6 +149,57 @@ a {
     align-items: center;
 }
 
+section {
+  height: 100vh;
+  width: 100vw;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--bb);
+  overflow: hidden; /* Prevent overflow */
+  box-sizing: border-box;
+
+  section p {
+    max-width: 100%;
+    overflow-wrap: break-word; /* Handles long words */
+  }
+  &:nth-of-type(1) {
+    background: var(--beta);
+  }
+
+  &:nth-of-type(2) {
+    background: var(--alpha);
+  }
+
+  &:nth-of-type(3) {
+    background: var(--beta);
+  }
+
+  &:nth-of-type(4) {
+    background: var(--alpha);
+  }
+}
+.reveal-type,
+.about-text {
+    word-wrap: break-word; /* Ensures long words are wrapped */
+    overflow-wrap: break-word; /* Fallback for older browsers */
+}
+.reveal-type {
+  display: inline-block;
+  transition: color 1s;
+  text-align: left;
+  justify-content: center;
+  font-family: var(--bb);
+  font-size: 2.5rem; /* Adjust font size as needed */
+  line-height: 1.4; /* Adjust line height for better readability */
+  max-width: 80vw; /* Prevent overflow */
+  padding: 0;
+  word-wrap: break-word; /* Break long words and strings */
+}
+
+
 .section-title {
     font-family: var(--og);
     font-size: 1.2rem;
@@ -156,6 +207,7 @@ a {
 
 .intro-text {
     margin-top: 5%;
+    font-size: 10vw;
 }
 
 .hidden {
@@ -194,7 +246,6 @@ a {
 #home>h1{
     color: var(--beta);
     text-align: center;
-    font-size: 12vw;
     line-height: .85;
     font-family: var(--psc);
     font-weight: 600; font-style: italic;
@@ -519,7 +570,7 @@ a {
     vertical-align: center;
     font-size: 3rem;
     font-family: var(--og);
-    color: var(--charlie);
+    color: var(--beta);
     margin: 0 6rem;
   }
 
