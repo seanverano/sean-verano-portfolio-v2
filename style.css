@@ -56,6 +56,13 @@ h1{
     padding: 0;
 }
 
+.logo {
+    font-family: var(--og);
+}
+.logo2 {
+    font-style: italic;
+    font-family: var(--og);
+}
 
 #main{
     position: relative;
