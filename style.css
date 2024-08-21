@@ -22,6 +22,21 @@
     /* colors */
     --alpha: #E8E8E8;
     --beta: #141414;
+    --charlie: #F5D300;
+}
+
+.cursor {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--charlie);
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 * {
@@ -34,12 +49,19 @@ body {
   height: 100%;
   width: 100%;
 }
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+
 #main{
     position: relative;
     overflow: hidden;
-    background-color: var(--alpha);
 }
-#page{
+
+#home{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,6 +69,7 @@ body {
     position: relative;
     height: 200vh;
     width: 100vw;
+    background-color: var(--alpha);
 }
 nav {
     position: fixed;
@@ -62,13 +85,10 @@ nav {
 
 nav > h3 {
     font-size: 1vw;
-    color: #fff;
 }
 
 nav > h3 i {
     font-size: 1.5vw;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 li {
@@ -83,12 +103,12 @@ li:hover {
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--beta);
 }
 
 #btn-one {  
     color: var(--alpha);
-    font-family: var(--bb);
+    font-family: var(--og);
     display: inline-block;
     padding: 1px 30px;
     border-radius: 10px;
@@ -122,12 +142,34 @@ a {
 }
 
 .section-title {
-    font-family: var(--bb);
+    font-family: var(--og);
     font-size: 1.2rem;
 }
+
+.intro-text {
+    margin-top: 5%;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in, visibility 1s ease-in;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.name, .title, #home > h1:not(.intro-text) {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in, visibility 1s ease-in;
+}
+
 .heroImg {
     position: absolute;
-    top: 20%; 
+    top: 25%; 
     left: 50%;
     transform: translateX(-50%);
     height: 60vh; 
@@ -140,7 +182,7 @@ a {
     object-fit: cover;
     border-radius: 10px;
 }
-#page>h1{
+#home>h1{
     color: var(--beta);
     text-align: center;
     font-size: 12vw;
@@ -149,12 +191,11 @@ a {
     font-weight: 600; font-style: italic;
 }
 @keyframes flicker {
-    0% { color: var(--beta); opacity: 1; }
-    25% { color: #8C8C8C; opacity: 1; } 
-    50% { color: var(--alpha); opacity: 0; }
-    100% { color: var(--beta); opacity: 1; }
+    0% { color: var(--alpha); opacity: 0; }
+    100% { color: var(--charlie); opacity: 1; } /* Ensure opacity is set to 1 at end */
 }
-#page .name {
+
+#home .name {
     font-family: var(--og);
     font-style: normal;
     position: relative;
@@ -162,16 +203,110 @@ a {
     letter-spacing: 0;
     line-height: .85;
     font-size: 30vw;
-    animation: flicker 3s infinite; 
+    color: var(--alpha); /* Initial color */
+    opacity: 0; /* Initial opacity */
+    animation: flicker 1s steps(2, end) forwards;
+    animation-play-state: paused; /* Initially paused */
 }
-#page-one{
+#about{
     position: relative;
-    height: 60vh;
+    height: 100vh;
     width: 100vw;
-    color: #fff;
+    background-color: var(--beta);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+}
+
+.about-text{
+    display: inline-block;
+    transition: color 1s;
+    text-align: left;
+    font-family: var(--bb);
+    font-size: 3vw;
+    margin-left: 300px;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
+.word {
+    color: var(--beta); 
+    display: inline-block;
+    transition: color 0.3s; 
+}
+
+/* TECH AND TOOLS (HORIZONTAL MARQUEE) */
+
+#about .moving-text {
+    background-color: var(--alpha);
+    overflow: hidden;
+    width: 100%;
+    margin: 10px 0;
+    font-family: var(--og);
+}
+
+#about .moving-text .text {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: move linear infinite 20s;
+}
+
+#about .moving-text .text .first {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+#about .moving-text .text .first img {
+    height: 100px;
+    width: 60px;
+    margin: 0 30px;
+}
+
+#about .moving-text .text .first h1 {
+    font-size: 2vw;
+    text-transform: uppercase;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+#projects{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--alpha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#contacts{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--beta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.main-nav.hidden {
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
 }
