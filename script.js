@@ -80,7 +80,7 @@ gsap.to(".hidden", {
         });
   
         gsap.to(movingText, {
-          background: "#1F1F1F",
+          background: "#0C0C0C",
           color: "#E8E8E8",
           duration: 0.5,
         });
@@ -91,13 +91,13 @@ gsap.to(".hidden", {
           height: "18px",
           width: "18px",
           innerHTML: "",
-          background: "#1F1F1F",
+          background: "#0C0C0C",
           margin: 0,
         });
   
         gsap.to(movingText, {
           background: "#E8E8E8",
-          color: "#1F1F1F",
+          color: "#0C0C0C",
           duration: 0.5,
         });
       });
@@ -170,7 +170,6 @@ gsap.to(".hidden", {
         end: "bottom top", // Animation ends when the bottom of the trigger element hits the top of the viewport
         scrub: true, // Smoothly scrubs the animation
         pin: true, // Pin the trigger element while animating
-        markers: false // Disable markers for cleaner view
       }
     }
   );
@@ -191,7 +190,7 @@ gsap.to(".hidden", {
         });
   
         gsap.to(section, {
-          background: "#1F1F1F",
+          background: "#0C0C0C",
           color: "#E8E8E8",
           duration: 0.5,
         });
@@ -202,13 +201,13 @@ gsap.to(".hidden", {
           height: "18px",
           width: "18px",
           innerHTML: "",
-          background: "#1F1F1F",
+          background: "#0C0C0C",
           margin: 0,
         });
   
         gsap.to(section, {
           background: "#E8E8E8",
-          color: "#1F1F1F",
+          color: "#0C0C0C",
           duration: 0.5,
         });
       });
@@ -217,3 +216,61 @@ gsap.to(".hidden", {
     animateSection("#projects-section");
   });
 
+  console.clear();
+
+  console.clear();
+
+  gsap.registerPlugin(ScrollTrigger);
+  
+  window.addEventListener("load", () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".wrapper",
+          start: "top top",
+          end: "+=150%",
+          pin: true,
+          scrub: true,
+        }
+      })
+      .to("img", {
+        scale: 2,
+        z: 350,
+        transformOrigin: "center center",
+        ease: "power1.inOut"
+      })
+      .to(
+        ".section.hero",
+        {
+          scale: 1.1,
+          transformOrigin: "center center",
+          ease: "power1.inOut"
+        },
+        "<"
+      );
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactTitle = document.querySelector(".contact-title");
+  
+    // Set initial state with blur and opacity
+    gsap.set(contactTitle, { 
+      filter: "blur(10px)", 
+      opacity: 0 
+    });
+  
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: contactTitle,
+        start: "top top",  // Start animation when the top of the contactTitle hits the top of the viewport
+        end: "+=900",     // End animation after scrolling 900px
+        scrub: true,      // Smoothly animate based on scroll position
+        pin: false        // Do not pin the trigger element
+      }
+    })
+    .to(contactTitle, { 
+      filter: "blur(0px)", 
+      opacity: 1,       // Animate opacity from 0 to 1
+      duration: 5 
+    }); // Clear blur and adjust opacity as you scroll
+  });

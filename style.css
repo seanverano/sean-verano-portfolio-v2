@@ -21,7 +21,7 @@
 
     /* colors */
     --alpha: #E8E8E8;
-    --beta: #1F1F1F;
+    --beta: #0C0C0C;
     --charlie: #FF482A;
 }
 
@@ -227,11 +227,11 @@ a {
     transition: color 1s;
     text-align: left;
     font-family: var(--bb);
-    font-size: 3vw;
+    font-size: 2.25vw;
     margin-left: 300px;
     margin-right: 100px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .word {
@@ -457,3 +457,63 @@ a {
       border: var(--beta) 0.1rem solid;
     }
   }
+
+  .wrapper,
+  .content {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .content {
+    overflow-x: hidden;
+  }
+  
+  .content .section {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .content .section.hero {
+    background-image: url(assets/images/desert.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .section.hero {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    height: 100vh;          /* Full viewport height (or adjust as needed) */
+    text-align: center;     /* Center text within the container */
+  }
+  .image-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    perspective: 500px;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .contact-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    font-size: 3rem;
+    font-family: var(--og);
+    color: var(--charlie);
+    margin: 0 6rem;
+  }
+
+  
