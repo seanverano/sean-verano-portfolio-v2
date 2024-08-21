@@ -21,8 +21,8 @@
 
     /* colors */
     --alpha: #E8E8E8;
-    --beta: #141414;
-    --charlie: #F5D300;
+    --beta: #1F1F1F;
+    --charlie: #FF482A;
 }
 
 .cursor {
@@ -43,6 +43,7 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
+  color: var(--alpha);
 }
 html,
 body {
@@ -176,6 +177,7 @@ a {
     width: 50vw;
     z-index: 1; 
 }
+
 .heroImg>img{
     height: 100%; 
     width: 100%;
@@ -228,7 +230,8 @@ a {
     font-size: 3vw;
     margin-left: 300px;
     margin-right: 100px;
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .word {
@@ -291,8 +294,20 @@ a {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
 }
-
+#projects-section{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--alpha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
 #contacts{
     position: relative;
     height: 100vh;
@@ -310,3 +325,135 @@ a {
     visibility: hidden; 
     transition: opacity 0.3s ease, visibility 0.3s ease; 
 }
+
+.zoom-text {
+    font-family: var(--psc);
+    font-size: 20vw; /* Extremely large text */
+    color: var(--charlie); /* Text color */
+    position: relative;
+    transform: scale(3); /* Initial zoom-out effect */
+    transition: transform 0.3s ease-out;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+/* PROJECT SECTION */
+
+#projects-section {
+    height: 230vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-template-rows: repeat(2, auto); /* Auto rows based on content */
+    gap: 20px; /* Space between grid items */
+    padding: 20px; /* Space around the grid */
+    justify-items: center; /* Center items horizontally within the grid */
+    align-items: center; /* Center items vertically within the grid */
+  }
+  
+  .proj-one, .proj-two, .proj-three, .proj-four {
+    position: relative; /* Required for flipping effect */
+    width: 80%; /* Ensure full width in the grid cell */
+    height: 60%; /* Ensure full height in the grid cell */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    border: 1px solid var(--beta); /* Optional: Add border to see grid items */
+    background-color: var(--alpha); /* Optional: Background color for the items */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow to keep the layout clean */
+    perspective: 1000px; /* Add perspective for the flip effect */
+  }
+  
+  .top-card, .bot-card {
+    position: absolute; /* Position them absolutely within the container */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the back face when flipped */
+    transition: transform 0.6s; /* Smooth transition for flip effect */
+  }
+  
+  .top-card {
+    z-index: 2; /* Ensure top card is above the bottom card */
+    background-color: var(--beta);
+  }
+  
+  .top-card img {
+    width: 100%; /* Make sure image fits the top card */
+    height: 100%; /* Adjust height as needed */
+    object-fit: cover; /* Ensure image covers the area */
+  }
+  
+  .bot-card {
+    background-color: var(--alpha); /* Background color for visibility */
+    padding: 1rem;
+    transform: rotateY(180deg); /* Initially hide the bot card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .proj-one:hover .top-card,
+  .proj-two:hover .top-card,
+  .proj-three:hover .top-card,
+  .proj-four:hover .top-card {
+    transform: rotateY(180deg); /* Flip the top card */
+  }
+  
+  .proj-one:hover .bot-card,
+  .proj-two:hover .bot-card,
+  .proj-three:hover .bot-card,
+  .proj-four:hover .bot-card {
+    transform: rotateY(0deg); /* Show the bottom card */
+  }
+  
+  .card-title {
+    font-family: var(--og);
+    color: var(--charlie);
+    font-size: 3em; /* Adjust font size */
+    margin-bottom: 1rem; /* Space below the title */
+    text-transform: uppercase;
+    text-align: left; /* Align text to the left */
+  }
+  
+  .card-content {
+    font-family: var(--psc);
+    color: var(--beta);
+    font-size: 1.5em; /* Adjust font size */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .card-tools {
+    font-family: var(--psc);
+    color: #333;
+    font-size: 1em;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: none; /* Initially hidden */
+  }
+  
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  
+  .button-one {
+    font-family: var(--og);
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--beta);
+    padding: 1rem;
+    border: var(--beta) 0.1rem solid;
+    border-radius: 2rem;
+    transition: all 0.2s ease; 
+  
+    &:hover {
+      color: var(--alpha);
+      background-color: var(--beta);
+      border: var(--beta) 0.1rem solid;
+    }
+  }

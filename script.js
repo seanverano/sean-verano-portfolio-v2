@@ -12,7 +12,7 @@ function cursor() {
     });
   }
   cursor();
-  
+
 gsap.to("#page", {
     scrollTrigger: {
       trigger: `.heroImg`,
@@ -35,7 +35,7 @@ gsap.to(".heroImg", {
   
   gsap.to(".name", {
     opacity: 1,
-    color: "#F5D300",
+    color: "#FF482A",
     visibility: 'visible',
     duration: 1,
     scrollTrigger: {
@@ -75,12 +75,12 @@ gsap.to(".hidden", {
           width: "100px",
           innerHTML: "<i class='fa-solid fa-volume-high'></i>",
           fontSize: "25px",
-          background: "white",
+          background: "#E8E8E8",
           margin: "20px",
         });
   
         gsap.to(movingText, {
-          background: "#141414",
+          background: "#1F1F1F",
           color: "#E8E8E8",
           duration: 0.5,
         });
@@ -91,13 +91,13 @@ gsap.to(".hidden", {
           height: "18px",
           width: "18px",
           innerHTML: "",
-          background: "#141414",
+          background: "#1F1F1F",
           margin: 0,
         });
   
         gsap.to(movingText, {
           background: "#E8E8E8",
-          color: "#141414",
+          color: "#1F1F1F",
           duration: 0.5,
         });
       });
@@ -112,27 +112,108 @@ gsap.to(".hidden", {
   // Select the navbar
   const navbar = document.querySelector('.main-nav');
   
-  // Create the GSAP timeline for the text animation
+  // Create the GSAP timeline for the text animation in the #about section
   const tl = gsap.timeline({
-      scrollTrigger: {
-          trigger: "#about", // The element to trigger the animation
-          start: "top top", // When the top of the trigger element hits the top of the viewport
-          end: "+=500", // Duration to keep the pin for a bit longer, adjust as needed
-          scrub: true, // Smoothly scrubs the animation
-          pin: true, // Pin the trigger element in place
-          anticipatePin: 1, // Smooth the pinning effect
-          onEnter: () => navbar.classList.add('hidden'), // Add class to hide the navbar
-          onLeaveBack: () => navbar.classList.remove('hidden') // Remove class to show the navbar
-      }
+    scrollTrigger: {
+      trigger: "#about", // The element to trigger the animation
+      start: "top top", // When the top of the trigger element hits the top of the viewport
+      end: "+=500", // Duration to keep the pin for a bit longer, adjust as needed
+      scrub: true, // Smoothly scrubs the animation
+      pin: true, // Pin the trigger element in place
+      anticipatePin: 1, // Smooth the pinning effect
+      onEnter: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 }), // Hide the navbar
+      onLeaveBack: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }) // Show the navbar again when scrolling back
+    }
   });
   
-  // Animate each word from black to white
+  // Animate each word from black to white in the #about section
   const words = document.querySelectorAll('.word');
   words.forEach((word, index) => {
-      tl.to(word, {
-          color: "white", // Final color
-          duration: 0.3, // Duration for each word transition
-          stagger: 0.05, // Stagger delay between words
-          ease: "power1.out" // Easing function
-      }, index * 0.05); // Delay the start of each word's animation
+    tl.to(word, {
+      color: "#E8E8E8", // Final color
+      duration: 0.3, // Duration for each word transition
+      stagger: 0.05, // Stagger delay between words
+      ease: "power1.out" // Easing function
+    }, index * 0.05); // Delay the start of each word's animation
   });
+  
+  // Show navbar when scrolling to the #projects section
+  ScrollTrigger.create({
+    trigger: "#projects",
+    start: "top bottom", // When the top of #projects hits the bottom of the viewport
+    end: "bottom bottom", // End when the bottom of #projects hits the bottom of the viewport
+    onEnter: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }), // Show the navbar
+    onLeave: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }) // Ensure the navbar stays visible
+  });
+  
+  // Show navbar when scrolling to the #project-section
+  ScrollTrigger.create({
+    trigger: "#project-section",
+    start: "top bottom", // When the top of #project-section hits the bottom of the viewport
+    onEnter: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }), // Show the navbar
+    onLeave: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }) // Ensure the navbar stays visible
+  });
+  // script.js
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo(".zoom-text", 
+    {
+      scale: 3, // Start with a large scale
+      opacity: 1
+    }, 
+    {
+      scale: .75, // Scale down to normal size
+      duration: 1, // Duration of the zoom effect
+      scrollTrigger: {
+        trigger: "#projects", // The element to trigger the animation
+        start: "top top", // Animation starts when the top of the trigger element hits the top of the viewport
+        end: "bottom top", // Animation ends when the bottom of the trigger element hits the top of the viewport
+        scrub: true, // Smoothly scrubs the animation
+        pin: true, // Pin the trigger element while animating
+        markers: false // Disable markers for cleaner view
+      }
+    }
+  );
+
+  document.addEventListener("DOMContentLoaded", () => {
+    function animateSection(sectionId) {
+      const section = document.querySelector(sectionId);
+      const cursor = document.querySelector(".cursor");
+  
+      section.addEventListener("mouseenter", () => {
+        gsap.to(cursor, {
+          height: "100px",
+          width: "100px",
+          innerHTML: "<i class='fa-solid fa-volume-high'></i>",
+          fontSize: "25px",
+          background: "#E8E8E8",
+          margin: "20px",
+        });
+  
+        gsap.to(section, {
+          background: "#1F1F1F",
+          color: "#E8E8E8",
+          duration: 0.5,
+        });
+      });
+  
+      section.addEventListener("mouseleave", () => {
+        gsap.to(cursor, {
+          height: "18px",
+          width: "18px",
+          innerHTML: "",
+          background: "#1F1F1F",
+          margin: 0,
+        });
+  
+        gsap.to(section, {
+          background: "#E8E8E8",
+          color: "#1F1F1F",
+          duration: 0.5,
+        });
+      });
+    }
+  
+    animateSection("#projects-section");
+  });
+
