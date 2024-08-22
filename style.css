@@ -158,45 +158,38 @@ section {
   justify-content: center;
   align-items: center;
   font-family: var(--bb);
-  overflow: hidden; /* Prevent overflow */
   box-sizing: border-box;
-
-  section p {
-    max-width: 100%;
-    overflow-wrap: break-word; /* Handles long words */
-  }
-  &:nth-of-type(1) {
-    background: var(--beta);
-  }
-
-  &:nth-of-type(2) {
-    background: var(--alpha);
-  }
-
-  &:nth-of-type(3) {
-    background: var(--beta);
-  }
-
-  &:nth-of-type(4) {
-    background: var(--alpha);
-  }
 }
+
+section:nth-of-type(1) {
+  background: var(--alpha);
+}
+
+section:nth-of-type(2) {
+  background: var(--beta);
+}
+
+section p {
+  max-width: 100%;
+  overflow-wrap: break-word; /* Handles long words */
+  color: inherit;
+}
+
 .reveal-type,
 .about-text {
-    word-wrap: break-word; /* Ensures long words are wrapped */
-    overflow-wrap: break-word; /* Fallback for older browsers */
+  overflow-wrap: break-word; /* Fallback for older browsers */
+  word-break: break-word; /* Break words to prevent overflow */
 }
+
 .reveal-type {
-  display: inline-block;
+  display: block; /* Use block layout for consistency */
   transition: color 1s;
-  text-align: left;
-  justify-content: center;
-  font-family: var(--bb);
-  font-size: 2.5rem; /* Adjust font size as needed */
+  text-align: center;
+  font-size: 2rem; /* Adjust font size as needed */
   line-height: 1.4; /* Adjust line height for better readability */
-  max-width: 80vw; /* Prevent overflow */
-  padding: 0;
-  word-wrap: break-word; /* Break long words and strings */
+  width: 80vw; /* Prevent overflow */
+  white-space: pre-wrap; /* Preserve whitespace and handle line breaks */
+  hyphens: auto; /* Automatic hyphenation if supported */
 }
 
 

@@ -117,15 +117,23 @@ splitTypes.forEach((char) => {
     const bg = char.dataset.bgColor;
     const fg = char.dataset.fgColor;
 
-    const text = new SplitType(char, { types: 'chars' });
+    // Change SplitType type from 'chars' to 'words'
+    const text = new SplitType(char, { types: 'words' });
 
     gsap.fromTo(
-        text.chars, 
-        { color: bg },
+        text.words, 
         { 
-            color: fg, 
+          color: fg,
+          scaleY:0,
+          y: -20,
+          transformOrigin: 'top',
+         },
+        { 
+            color: bg,
+            scaleY: 1,
+            y: 0,
             duration: 0.3,
-            stagger: 0.05,
+            stagger: 0.1,
             scrollTrigger: {
                 trigger: char,
                 start: 'top 80%',
@@ -137,20 +145,6 @@ splitTypes.forEach((char) => {
         }
     );
 });
-
-// Initialize Lenis Library
-const lenis = new Lenis();
-
-lenis.on('scroll', (e) => {
-    console.log(e);
-});
-
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
 
 // About Section Text Animation
 gsap.registerPlugin(ScrollTrigger);
@@ -312,3 +306,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 console.clear();
+
