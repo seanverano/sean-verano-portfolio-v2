@@ -307,3 +307,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
 console.clear();
 
+//about intro list animation
+
+const phrases = ["Introduction", "Profile", "Overview", "Details", "Background"];
+  const textElement = document.getElementById('about-list');
+  let index = 0;
+
+  function rotateText() {
+    textElement.textContent = phrases[index];
+    index = (index + 1) % phrases.length;
+  }
+
+  setInterval(rotateText, 1000);
+
+  function spark(event) {
+    // Get the container element
+    const aboutIntro = document.getElementById('about-intro');
+    
+    if (aboutIntro) {
+        let s = document.createElement('s');
+        
+        // Get the relative position within #about-intro
+        const rect = aboutIntro.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        
+        s.style.left = `${x}px`;
+        s.style.top = `${y}px`;
+
+        // Randomly set the scale of the spark
+        s.style.transform = `scale(${Math.random() * 2 + 1})`;
+
+        // Add random CSS custom properties
+        s.style.setProperty('--x', getRandomTransitionValue());
+        s.style.setProperty('--y', getRandomTransitionValue());
+
+        // Append the spark to the container
+        aboutIntro.appendChild(s);
+
+        // Remove the spark after the animation ends
+        setTimeout(() => {
+            if (s.parentElement) {
+                s.parentElement.removeChild(s);
+            }
+        }, 2000); // Match the duration of the animation
+    }
+}
+
+function getRandomTransitionValue() {
+    return `${Math.random() * 400 - 200}px`;
+}
+
+// Add event listener to the specific container
+const aboutIntro = document.getElementById('about-intro');
+if (aboutIntro) {
+    aboutIntro.addEventListener('mousemove', spark);
+}

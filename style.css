@@ -192,6 +192,52 @@ section p {
   hyphens: auto; /* Automatic hyphenation if supported */
 }
 
+#about-intro {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--beta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+#about-list {
+  margin-right: 2rem;
+  
+  font-size: 4rem;
+  color: var(--alpha);
+  font-family: var(--og);
+}
+
+s {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--alpha); /* Set the spark color */
+  pointer-events: none;
+  border-radius: 50%; /* Make sparks circular */
+  animation: animate 2s linear forwards;
+}
+
+@keyframes animate {
+  0% {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+  100% {
+      opacity: 0;
+      transform: translate(var(--x), var(--y));
+  }
+}
 
 .section-title {
     font-family: var(--og);
@@ -378,7 +424,7 @@ section p {
 }
 
 .zoom-text {
-    font-family: var(--psc);
+    font-family: var(--og);
     font-size: 20vw; /* Extremely large text */
     color: var(--charlie); /* Text color */
     position: relative;
