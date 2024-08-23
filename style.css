@@ -1,198 +1,313 @@
 @font-face {
-    font-family: 'BiotifBlack'; 
-    src: url('./fonts/Fontspring-DEMO-biotif-black.ttf') format('truetype');
+  font-family: 'BiotifBlack'; 
+  src: url('./fonts/Fontspring-DEMO-biotif-black.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'IBM Plex Sans Condensed';
-    src: url('/fonts/IBMPlexSansCondensed-SemiBoldItalic.ttf') format('truetype');
+  font-family: 'IBM Plex Sans Condensed';
+  src: url('/fonts/IBMPlexSansCondensed-SemiBoldItalic.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Overused Grotesk';
-    src: url('assets/fonts/OverusedGrotesk-Bold.ttf') format('truetype');
+  font-family: 'Overused Grotesk';
+  src: url('assets/fonts/OverusedGrotesk-Bold.ttf') format('truetype');
 }
 
 :root {
-    /* fonts */
-    --bb: 'BiotifBlack', sans-serif;
-    --psc: 'IBM Plex Sans Condensed', sans-serif;
-    --og: 'Overused Grotesk', sans-serif;
+  /* fonts */
+  --bb: 'BiotifBlack', sans-serif;
+  --psc: 'IBM Plex Sans Condensed', sans-serif;
+  --og: 'Overused Grotesk', sans-serif;
 
-    /* colors */
-    --alpha: #E8E8E8;
-    --beta: #0C0C0C;
-    --charlie: #FF482A;
+  /* colors */
+  --alpha: #E8E8E8;
+  --beta: #0C0C0C;
+  --charlie: #FF482A;
 }
 
 .cursor {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--charlie);
-    z-index: 80;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--charlie);
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 * {
-  margin: 0%;
-  padding: 0%;
-  box-sizing: border-box;
-  color: var(--alpha);
+margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+color: var(--alpha);
 }
 html,
 body {
-  height: 100vh;
-  width: 100%;
+height: 100vh;
+width: 100%;
 }
 
 h1{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
-    font-family: var(--og);
+  font-family: var(--og);
 }
 .logo2 {
-    font-style: italic;
-    font-family: var(--og);
+  font-style: italic;
+  font-family: var(--og);
 }
 
 #main{
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 #home{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    height: 200vh;
-    width: 100vw;
-    background-color: var(--alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  height: 200vh;
+  width: 100vw;
+  background-color: var(--alpha);
 }
 nav {
-    position: fixed;
-    top: 0;
-    padding: 0 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    width: 100vw;
-    z-index: 99999999; 
+  position: fixed;
+  top: 0;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100vw;
+  z-index: 99999999; 
 }
 
 nav > h3 {
-    font-size: 1vw;
+  font-size: 1vw;
 }
 
 nav > h3 i {
-    font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 li {
-    list-style: none;
-    transition: all 0.4s;
-    z-index: 15;
+  list-style: none;
+  transition: all 0.4s;
+  z-index: 15;
 }
 
 li:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 a {
-    text-decoration: none;
-    color: var(--beta);
+  text-decoration: none;
+  color: var(--beta);
 }
 
 #btn-one {  
-    color: var(--alpha);
-    font-family: var(--og);
-    display: inline-block;
-    padding: 1px 30px;
-    border-radius: 10px;
-    background-color: var(--beta);
-    letter-spacing: 2px;
+  color: var(--alpha);
+  font-family: var(--og);
+  display: inline-block;
+  padding: 1px 30px;
+  border-radius: 10px;
+  background-color: var(--beta);
+  letter-spacing: 2px;
 }
 
 #btn-one:hover {
-    transform: scale(0.97);
-    color: #191919;
-    background-color: var(--home-color);
+  transform: scale(0.97);
+  color: #191919;
+  background-color: var(--home-color);
 }
 
 .main-nav {
-    display: flex;
-    z-index: 12;
+  display: flex;
+  z-index: 12;
 }
 
 .main-nav .ul-two {
-    display: flex;
-    right: 4em;
+  display: flex;
+  right: 4em;
 }
 
 .main-nav .ul-two li {
-    margin-left: 1.5em;
+  margin-left: 1.5em;
 }
 
 .main-nav .ul-two #border {
-    padding: 0 15px;
-    align-items: center;
+  padding: 0 15px;
+  align-items: center;
 }
 
 section {
-  height: 100vh;
-  width: 100vw;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--bb);
-  box-sizing: border-box;
+height: 100vh;
+width: 100vw;
+padding: 3rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-family: var(--bb);
+box-sizing: border-box;
 }
 
 section:nth-of-type(1) {
-  background: var(--alpha);
+background: var(--alpha);
 }
 
 section:nth-of-type(2) {
-  background: var(--beta);
+background: var(--beta);
 }
 
 section p {
-  max-width: 100%;
-  overflow-wrap: break-word; /* Handles long words */
-  color: inherit;
+max-width: 100%;
+overflow-wrap: break-word; /* Handles long words */
+color: inherit;
 }
 
 .reveal-type,
 .about-text {
-  overflow-wrap: break-word; /* Fallback for older browsers */
-  word-break: break-word; /* Break words to prevent overflow */
+overflow-wrap: break-word; /* Fallback for older browsers */
+word-break: break-word; /* Break words to prevent overflow */
 }
 
 .reveal-type {
-  display: block; /* Use block layout for consistency */
-  transition: color 1s;
-  text-align: center;
-  font-size: 2rem; /* Adjust font size as needed */
-  line-height: 1.4; /* Adjust line height for better readability */
-  width: 80vw; /* Prevent overflow */
-  white-space: pre-wrap; /* Preserve whitespace and handle line breaks */
-  hyphens: auto; /* Automatic hyphenation if supported */
+display: block; /* Use block layout for consistency */
+transition: color 1s;
+text-align: center;
+font-size: 2rem; /* Adjust font size as needed */
+line-height: 1.4; /* Adjust line height for better readability */
+width: 80vw; /* Prevent overflow */
+white-space: pre-wrap; /* Preserve whitespace and handle line breaks */
+hyphens: auto; /* Automatic hyphenation if supported */
 }
 
 #about-intro {
+position: relative;
+height: 100vh;
+width: 100vw;
+background-color: var(--beta);
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.about-wrapper {
+position: absolute;
+bottom: 0;
+right: 0;
+padding: 1rem;
+}
+
+#about-list {
+margin-right: 2rem;
+
+font-size: 4rem;
+color: var(--alpha);
+font-family: var(--og);
+}
+
+s {
+position: absolute;
+width: 4px;
+height: 4px;
+background: var(--alpha); /* Set the spark color */
+pointer-events: none;
+border-radius: 50%; /* Make sparks circular */
+animation: animate 2s linear forwards;
+}
+
+@keyframes animate {
+0% {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y));
+}
+}
+
+.section-title {
+  font-family: var(--og);
+  font-size: 1.2rem;
+}
+
+.intro-text {
+  margin-top: 5%;
+  font-size: 10vw;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in, visibility 1s ease-in;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.name, .title, #home > h1:not(.intro-text) {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in, visibility 1s ease-in;
+}
+
+.heroImg {
+  position: absolute;
+  top: 25%; 
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60vh; 
+  width: 50vw;
+  z-index: 1; 
+}
+
+.heroImg>img{
+  height: 100%; 
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+#home>h1{
+  color: var(--beta);
+  text-align: center;
+  line-height: .85;
+  font-family: var(--psc);
+  font-weight: 600; font-style: italic;
+}
+@keyframes flicker {
+  0% { color: var(--alpha); opacity: 0; }
+  100% { color: var(--charlie); opacity: 1; } /* Ensure opacity is set to 1 at end */
+}
+
+#home .name {
+  font-family: var(--og);
+  font-style: normal;
+  position: relative;
+  z-index: 999;
+  letter-spacing: 0;
+  line-height: .85;
+  font-size: 30vw;
+  color: var(--alpha); /* Initial color */
+  opacity: 0; /* Initial opacity */
+  animation: flicker 1s steps(2, end) forwards;
+  animation-play-state: paused; /* Initially paused */
+}
+#about{
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -200,392 +315,276 @@ section p {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
 }
 
-.about-wrapper {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 1rem;
-}
-
-#about-list {
-  margin-right: 2rem;
-  
-  font-size: 4rem;
-  color: var(--alpha);
-  font-family: var(--og);
-}
-
-s {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--alpha); /* Set the spark color */
-  pointer-events: none;
-  border-radius: 50%; /* Make sparks circular */
-  animation: animate 2s linear forwards;
-}
-
-@keyframes animate {
-  0% {
-      opacity: 1;
-      transform: translate(0, 0);
-  }
-  100% {
-      opacity: 0;
-      transform: translate(var(--x), var(--y));
-  }
-}
-
-.section-title {
-    font-family: var(--og);
-    font-size: 1.2rem;
-}
-
-.intro-text {
-    margin-top: 5%;
-    font-size: 10vw;
-}
-
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease-in, visibility 1s ease-in;
-}
-
-.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.name, .title, #home > h1:not(.intro-text) {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease-in, visibility 1s ease-in;
-}
-
-.heroImg {
-    position: absolute;
-    top: 25%; 
-    left: 50%;
-    transform: translateX(-50%);
-    height: 60vh; 
-    width: 50vw;
-    z-index: 1; 
-}
-
-.heroImg>img{
-    height: 100%; 
-    width: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-#home>h1{
-    color: var(--beta);
-    text-align: center;
-    line-height: .85;
-    font-family: var(--psc);
-    font-weight: 600; font-style: italic;
-}
-@keyframes flicker {
-    0% { color: var(--alpha); opacity: 0; }
-    100% { color: var(--charlie); opacity: 1; } /* Ensure opacity is set to 1 at end */
-}
-
-#home .name {
-    font-family: var(--og);
-    font-style: normal;
-    position: relative;
-    z-index: 999;
-    letter-spacing: 0;
-    line-height: .85;
-    font-size: 30vw;
-    color: var(--alpha); /* Initial color */
-    opacity: 0; /* Initial opacity */
-    animation: flicker 1s steps(2, end) forwards;
-    animation-play-state: paused; /* Initially paused */
-}
-#about{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--beta);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
 .about-text{
-    display: inline-block;
-    transition: color 1s;
-    text-align: left;
-    font-family: var(--bb);
-    font-size: 2.25vw;
-    margin-left: 300px;
-    margin-right: 100px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+  display: inline-block;
+  transition: color 1s;
+  text-align: left;
+  font-family: var(--bb);
+  font-size: 2.25vw;
+  margin-left: 300px;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .word {
-    color: var(--beta); 
-    display: inline-block;
-    transition: color 0.3s; 
+  color: var(--beta); 
+  display: inline-block;
+  transition: color 0.3s; 
 }
 
 /* TECH AND TOOLS (HORIZONTAL MARQUEE) */
 
 #about .moving-text {
-    background-color: var(--alpha);
-    overflow: hidden;
-    width: 100%;
-    margin: 10px 0;
-    font-family: var(--og);
+  background-color: var(--alpha);
+  overflow: hidden;
+  width: 100%;
+  margin: 10px 0;
+  font-family: var(--og);
 }
 
 #about .moving-text .text {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    animation: move linear infinite 20s;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: move linear infinite 20s;
 }
 
 #about .moving-text .text .first {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 #about .moving-text .text .first img {
-    height: 100px;
-    width: 60px;
-    margin: 0 30px;
+  height: 100px;
+  width: 60px;
+  margin: 0 30px;
 }
 
 #about .moving-text .text .first h1 {
-    font-size: 2vw;
-    text-transform: uppercase;
+  font-size: 2vw;
+  text-transform: uppercase;
 }
 
 @keyframes move {
-    from {
-        transform: translateX(0%);
-    }
+  from {
+      transform: translateX(0%);
+  }
 
-    to {
-        transform: translateX(-100%);
-    }
+  to {
+      transform: translateX(-100%);
+  }
 }
 
 #projects{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--alpha);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
 }
 #projects-section{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--alpha);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
 }
 
 .main-nav.hidden {
-    opacity: 0; 
-    visibility: hidden; 
-    transition: opacity 0.3s ease, visibility 0.3s ease; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.3s ease, visibility 0.3s ease; 
 }
 
 .zoom-text {
-    font-family: var(--og);
-    font-size: 20vw; /* Extremely large text */
-    color: var(--charlie); /* Text color */
-    position: relative;
-    transform: scale(3); /* Initial zoom-out effect */
-    transition: transform 0.3s ease-out;
-    white-space: nowrap; /* Prevent text from wrapping */
-  }
+  font-family: var(--og);
+  font-size: 20vw; /* Extremely large text */
+  color: var(--charlie); /* Text color */
+  position: relative;
+  transform: scale(3); /* Initial zoom-out effect */
+  transition: transform 0.3s ease-out;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
 
 /* PROJECT SECTION */
 
 #projects-section {
-    height: 230vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-    grid-template-rows: repeat(2, auto); /* Auto rows based on content */
-    gap: 20px; /* Space between grid items */
-    padding: 20px; /* Space around the grid */
-    justify-items: center; /* Center items horizontally within the grid */
-    align-items: center; /* Center items vertically within the grid */
-  }
-  
-  .proj-one, .proj-two, .proj-three, .proj-four {
-    position: relative; /* Required for flipping effect */
-    width: 80%; /* Ensure full width in the grid cell */
-    height: 60%; /* Ensure full height in the grid cell */
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    border: 1px solid var(--beta); /* Optional: Add border to see grid items */
-    background-color: var(--alpha); /* Optional: Background color for the items */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Hide overflow to keep the layout clean */
-    perspective: 1000px; /* Add perspective for the flip effect */
-  }
-  
-  .top-card, .bot-card {
-    position: absolute; /* Position them absolutely within the container */
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Hide the back face when flipped */
-    transition: transform 0.6s; /* Smooth transition for flip effect */
-  }
-  
-  .top-card {
-    z-index: 2; /* Ensure top card is above the bottom card */
+  height: 230vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  grid-template-rows: repeat(2, auto); /* Auto rows based on content */
+  gap: 20px; /* Space between grid items */
+  padding: 20px; /* Space around the grid */
+  justify-items: center; /* Center items horizontally within the grid */
+  align-items: center; /* Center items vertically within the grid */
+}
+
+.proj-one, .proj-two, .proj-three, .proj-four {
+  position: relative; /* Required for flipping effect */
+  width: 80%; /* Ensure full width in the grid cell */
+  height: 60%; /* Ensure full height in the grid cell */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  border: 1px solid var(--beta); /* Optional: Add border to see grid items */
+  background-color: var(--alpha); /* Optional: Background color for the items */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow to keep the layout clean */
+  perspective: 1000px; /* Add perspective for the flip effect */
+}
+
+.top-card, .bot-card {
+  position: absolute; /* Position them absolutely within the container */
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back face when flipped */
+  transition: transform 0.6s; /* Smooth transition for flip effect */
+}
+
+.top-card {
+  z-index: 2; /* Ensure top card is above the bottom card */
+  background-color: var(--beta);
+}
+
+.top-card img {
+  width: 100%; /* Make sure image fits the top card */
+  height: 100%; /* Adjust height as needed */
+  object-fit: cover; /* Ensure image covers the area */
+}
+
+.bot-card {
+  background-color: var(--alpha); /* Background color for visibility */
+  padding: 1rem;
+  transform: rotateY(180deg); /* Initially hide the bot card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.proj-one:hover .top-card,
+.proj-two:hover .top-card,
+.proj-three:hover .top-card,
+.proj-four:hover .top-card {
+  transform: rotateY(180deg); /* Flip the top card */
+}
+
+.proj-one:hover .bot-card,
+.proj-two:hover .bot-card,
+.proj-three:hover .bot-card,
+.proj-four:hover .bot-card {
+  transform: rotateY(0deg); /* Show the bottom card */
+}
+
+.card-title {
+  font-family: var(--og);
+  color: var(--charlie);
+  font-size: 3em; /* Adjust font size */
+  margin-bottom: 1rem; /* Space below the title */
+  text-transform: uppercase;
+  text-align: left; /* Align text to the left */
+}
+
+.card-content {
+  font-family: var(--psc);
+  color: var(--beta);
+  font-size: 1.5em; /* Adjust font size */
+  text-align: left; /* Align text to the left */
+}
+
+.card-tools {
+  font-family: var(--psc);
+  color: #333;
+  font-size: 1em;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none; /* Initially hidden */
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.button-one {
+  font-family: var(--og);
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--beta);
+  padding: 1rem;
+  border: var(--beta) 0.1rem solid;
+  border-radius: 2rem;
+  transition: all 0.2s ease; 
+
+  &:hover {
+    color: var(--alpha);
     background-color: var(--beta);
-  }
-  
-  .top-card img {
-    width: 100%; /* Make sure image fits the top card */
-    height: 100%; /* Adjust height as needed */
-    object-fit: cover; /* Ensure image covers the area */
-  }
-  
-  .bot-card {
-    background-color: var(--alpha); /* Background color for visibility */
-    padding: 1rem;
-    transform: rotateY(180deg); /* Initially hide the bot card */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .proj-one:hover .top-card,
-  .proj-two:hover .top-card,
-  .proj-three:hover .top-card,
-  .proj-four:hover .top-card {
-    transform: rotateY(180deg); /* Flip the top card */
-  }
-  
-  .proj-one:hover .bot-card,
-  .proj-two:hover .bot-card,
-  .proj-three:hover .bot-card,
-  .proj-four:hover .bot-card {
-    transform: rotateY(0deg); /* Show the bottom card */
-  }
-  
-  .card-title {
-    font-family: var(--og);
-    color: var(--charlie);
-    font-size: 3em; /* Adjust font size */
-    margin-bottom: 1rem; /* Space below the title */
-    text-transform: uppercase;
-    text-align: left; /* Align text to the left */
-  }
-  
-  .card-content {
-    font-family: var(--psc);
-    color: var(--beta);
-    font-size: 1.5em; /* Adjust font size */
-    text-align: left; /* Align text to the left */
-  }
-  
-  .card-tools {
-    font-family: var(--psc);
-    color: #333;
-    font-size: 1em;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: none; /* Initially hidden */
-  }
-  
-  .links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-  
-  .button-one {
-    font-family: var(--og);
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: var(--beta);
-    padding: 1rem;
     border: var(--beta) 0.1rem solid;
-    border-radius: 2rem;
-    transition: all 0.2s ease; 
-  
-    &:hover {
-      color: var(--alpha);
-      background-color: var(--beta);
-      border: var(--beta) 0.1rem solid;
-    }
+  }
+}
+
+/* test contact */
+
+#contacts {
+  background-color: var(--alpha);
+  height: 150vh;
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  position: relative; /* Positioning context for the h1 */
+  overflow: hidden;
+  z-index: 1;
+  position: relative; /* Ensure the container is positioned relatively for absolute positioning inside it */
+  overflow: hidden;
+   /* Ensure no overflow issues */
+
+  img {
+    margin: 0 7vw; /* Converted from 15rem */
+    height: 30vh;   /* Converted from 20rem */
+    width: 12vw;  /* Converted from 12rem */
+    object-fit: cover;
+   /* Ensure images are placed according to their speed */
+    z-index: 0;
   }
 
-  /* test contact */
-
-  #contacts {
-    background-color: var(--alpha);
-    height: 150vh;
-    width: 100vw;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    position: relative; /* Positioning context for the h1 */
-    overflow: hidden;
-    z-index: 1;
-    position: relative; /* Ensure the container is positioned relatively for absolute positioning inside it */
-    overflow: hidden;
-     /* Ensure no overflow issues */
   
-    img {
-      margin: 0 7vw; /* Converted from 15rem */
-      height: 30vh;   /* Converted from 20rem */
-      width: 12vw;  /* Converted from 12rem */
-      object-fit: cover;
-     /* Ensure images are placed according to their speed */
-      z-index: 0;
-    }
-
-    
-    h1.conheader {
-      position: absolute; /* Keep the heading fixed relative to #contacts */
-      top: 50%; /* Center vertically within #contacts */
-      left: 50%; /* Center horizontally */
-      transform: translate(-50%, -50%); /* Adjust position to true center */
-      z-index: 10; /* Ensure it appears above other elements */
-      width: 100%; /* Adjust width as needed */
-      text-align: center;
-      justify-content: center; /* Center text horizontally */
-      font-size: 20vw; /* Adjust font size as needed */
-      color: var(--charlie); /* Use your defined color variable */
-      font-family: var(--og); /* Use your defined font family */
-    }
+  h1.conheader {
+    position: absolute; /* Keep the heading fixed relative to #contacts */
+    top: 50%; /* Center vertically within #contacts */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to true center */
+    z-index: 10; /* Ensure it appears above other elements */
+    width: 100%; /* Adjust width as needed */
+    text-align: center;
+    justify-content: center; /* Center text horizontally */
+    font-size: 20vw; /* Adjust font size as needed */
+    color: var(--charlie); /* Use your defined color variable */
+    font-family: var(--og); /* Use your defined font family */
   }
+}
 
 
-  
-  
+

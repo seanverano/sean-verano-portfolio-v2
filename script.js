@@ -391,4 +391,3 @@ newImgs.forEach(img => {
   
 
 
-
