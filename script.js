@@ -1,17 +1,4 @@
-// Cursor Animation
-function cursor() {
-  let cursor = document.querySelector(".cursor");
-  let body = document.querySelector("body");
 
-  body.addEventListener("mousemove", (e) => {
-    gsap.to(cursor, {
-      x: e.clientX, // Changed from e.x to e.clientX
-      y: e.clientY, // Changed from e.y to e.clientY
-      duration: 0.1
-    });
-  });
-}
-cursor();
 
 // Hero Section Animation
 
@@ -280,32 +267,6 @@ window.addEventListener("load", () => {
     );
 });
 
-// Contact Title Blur and Fade Animation
-document.addEventListener("DOMContentLoaded", () => {
-  const contactTitle = document.querySelector(".contact-title");
-
-  gsap.set(contactTitle, {
-    filter: "blur(10px)",
-    opacity: 0
-  });
-
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: contactTitle,
-      start: "top top",
-      end: "+=900",
-      scrub: true,
-      pin: false
-    }
-  })
-    .to(contactTitle, {
-      filter: "blur(0px)",
-      opacity: 1,
-      duration: 5
-    });
-});
-
-console.clear();
 
 //about intro list animation
 
@@ -363,3 +324,60 @@ const aboutIntro = document.getElementById('about-intro');
 if (aboutIntro) {
     aboutIntro.addEventListener('mousemove', spark);
 }
+
+
+//test JS
+
+
+const heading = document.querySelector('h1');
+const headingSplit = new SplitType(heading);
+const imgs = gsap.utils.toArray('img')
+
+// Get all the spans (letters) created by SplitType
+const letters = heading.querySelectorAll('.char');
+
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// For each letter, set up a GSAP animation with ScrollTrigger
+letters.forEach((letter, index) => {
+  const randomYPercent = getRandom(70, 1100);
+
+  gsap.fromTo(letter, 
+      { 
+          yPercent: -randomYPercent,
+          opacity: 0,
+      },
+      {
+          yPercent: 0,
+          opacity: 1,
+          scrollTrigger: {
+              trigger: heading,
+              start: "top bottom",
+              end: "bottom center",
+              scrub: true,
+          }
+      }
+  );
+});
+
+// Targeting only images with the "contact-img" class
+const contactImgs = gsap.utils.toArray('.contact-img');
+
+contactImgs.forEach(img => {
+  const speed = img.dataset.speed;
+  gsap.to(img, {
+      yPercent: speed * -100,
+      ease: 'none',
+      scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          scrub: true
+      }
+  });
+});
+
+
+
+
