@@ -388,6 +388,10 @@ newImgs.forEach(img => {
       }
   });
 });
-  
+
+//contact
+
+
+
 
 

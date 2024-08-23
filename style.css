@@ -43,10 +43,13 @@
 margin: 0%;
 padding: 0%;
 box-sizing: border-box;
-color: var(--alpha);
 }
+
 html,
 body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 height: 100vh;
 width: 100%;
 }
@@ -66,7 +69,6 @@ h1{
 
 #main{
   position: relative;
-  overflow: hidden;
 }
 
 #home{
@@ -586,5 +588,107 @@ animation: animate 2s linear forwards;
   }
 }
 
+/*contact*/
+
+.contact-info {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Full width of viewport */
+  height: 180vh; /* Full height of viewport or as needed */
+  background-color: var(--alpha); /* Background color */
+  overflow: hidden; /* Ensure no content overflow */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.card-contact {
+  display: flex;
+  flex-direction: column; /* Stack text elements vertically */
+  justify-content: center;
+  align-items: center;
+  width: 90vw; /* Width of the card */
+  height: 90vh; /* Height of the card */
+  border-radius: 0.8rem; /* Border radius for rounded corners */
+  background-color: #191919;
+  background-image: url(assets/images/noisy.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  margin-top: 0;/* Adjust opacity for better visibility */
+  margin-bottom: 2rem; /* Space between card-contact and card-links */
+  padding: 2rem; /* Optional: Add padding for better spacing */
+  text-align: center; /* Center text horizontally */
+}
+
+.card-contact p, .card-contact h1 {
+  margin: 0; /* Remove default margins */
+  color: var(--alpha); /* Ensure text is visible against background */
+}
+
+.card-contact p {
+  font-family: var(--og); /* Use the specified font-family */
+  font-size: 1rem; /* Adjust font size as needed */
+}
+
+.card-contact h1 {
+  font-family: var(--og); /* Use the specified font-family */
+  font-size: 3rem; /* Adjust font size as needed */
+}
+
+.button-two {
+  font-family: var(--og);
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--alpha); /* Text color */
+  padding: 1rem;
+  border: var(--charlie);  /* Border color */
+  border-radius: 50%; /* Make the button circular */
+  transition: all 0.3s ease;
+  position: relative; /* Required for positioning */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem; /* Bigger size */
+  height: 6rem; /* Bigger size */
+  overflow: hidden; /* Hide overflow to create the sliding effect */
+  background-color: var(--charlie) /* Button color */
+}
+
+.text-before,
+.text-after {
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.text-before {
+  transform: translateY(0%);
+}
+
+.text-after {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.button-two:hover .text-before {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.button-two:hover .text-after {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.button-two:hover {
+  color: var(--charlie); /* Text color on hover */
+  background-color: var(--alpha); /* Button color on hover */
+  border: var(--charlie); /* Border color on hover */
+}
 
 
+
+
+  
