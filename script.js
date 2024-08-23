@@ -327,11 +327,10 @@ if (aboutIntro) {
 
 
 //test JS
-
-
 const heading = document.querySelector('h1');
 const headingSplit = new SplitType(heading);
-const imgs = gsap.utils.toArray('img')
+const originalImgs = gsap.utils.toArray('.contact-img.original');
+const newImgs = gsap.utils.toArray('.contact-img.new');
 
 // Get all the spans (letters) created by SplitType
 const letters = heading.querySelectorAll('.char');
@@ -362,10 +361,8 @@ letters.forEach((letter, index) => {
   );
 });
 
-// Targeting only images with the "contact-img" class
-const contactImgs = gsap.utils.toArray('.contact-img');
-
-contactImgs.forEach(img => {
+// Animate original images moving up
+originalImgs.forEach(img => {
   const speed = img.dataset.speed;
   gsap.to(img, {
       yPercent: speed * -100,
@@ -378,6 +375,20 @@ contactImgs.forEach(img => {
   });
 });
 
+// Animate new images moving down (opposite direction)
+newImgs.forEach(img => {
+  const speed = img.dataset.speed;
+  gsap.to(img, {
+      yPercent: speed * 100, // Reverse the direction by using positive value
+      ease: 'none',
+      scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          scrub: true
+      }
+  });
+});
+  
 
 
 

@@ -548,7 +548,7 @@ s {
 
   #contacts {
     background-color: var(--alpha);
-    height: 200vh;
+    height: 150vh;
     width: 100vw;
     margin: 0 auto;
     display: flex;
@@ -562,9 +562,9 @@ s {
      /* Ensure no overflow issues */
   
     img {
-      margin: 0 10vw; /* Converted from 15rem */
-      height: 40vh;   /* Converted from 20rem */
-      width: 19.2vw;  /* Converted from 12rem */
+      margin: 0 7vw; /* Converted from 15rem */
+      height: 30vh;   /* Converted from 20rem */
+      width: 12vw;  /* Converted from 12rem */
       object-fit: cover;
      /* Ensure images are placed according to their speed */
       z-index: 0;
