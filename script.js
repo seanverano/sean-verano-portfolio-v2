@@ -57,43 +57,43 @@ gsap.to(".hidden", {
 document.addEventListener("DOMContentLoaded", () => {
   function animateMovingText() {
     const movingText = document.querySelector(".moving-text");
+    const movingTextTitle = document.querySelector(".moving-text-title");
+    const toolsSection = document.querySelector(".tools-section");
     const cursor = document.querySelector(".cursor");
 
-    movingText.addEventListener("mouseenter", () => {
-      gsap.to(cursor, {
-        height: "100px",
-        width: "100px",
-        innerHTML: "<i class='fa-solid fa-volume-high'></i>",
-        fontSize: "25px",
-        background: "#E8E8E8",
-        margin: "20px",
+    // Combine selectors for the animation target
+    const elementsToAnimate = [movingText, toolsSection, movingTextTitle];
+
+    elementsToAnimate.forEach(element => {
+      element.addEventListener("mouseenter", () => {
+        gsap.to(cursor, {
+          background: "#E8E8E8",
+        });
+
+        gsap.to(elementsToAnimate, {
+          backgroundColor: "#0C0C0C",
+          color: "#E8E8E8",
+          duration: 0.5,
+        });
       });
 
-      gsap.to(movingText, {
-        background: "#0C0C0C",
-        color: "#E8E8E8",
-        duration: 0.5,
-      });
-    });
+      element.addEventListener("mouseleave", () => {
+        gsap.to(cursor, {
+          background: "#0C0C0C",
+        });
 
-    movingText.addEventListener("mouseleave", () => {
-      gsap.to(cursor, {
-        height: "18px",
-        width: "18px",
-        innerHTML: "",
-        background: "#0C0C0C",
-        margin: 0,
-      });
-
-      gsap.to(movingText, {
-        background: "#E8E8E8",
-        color: "#0C0C0C",
-        duration: 0.5,
+        gsap.to(elementsToAnimate, {
+          backgroundColor: "#E8E8E8",
+          color: "#0C0C0C",
+          duration: 0.5,
+        });
       });
     });
   }
+  
   animateMovingText();
 });
+
 
 // About Section Text Animation
 gsap.registerPlugin(ScrollTrigger);
@@ -420,7 +420,7 @@ function updateLocalTime() {
 setInterval(updateLocalTime, 1000); // Update every second
 updateLocalTime();
 
-//test contct-card
-
 
 //tools/technology/framework
+
+
