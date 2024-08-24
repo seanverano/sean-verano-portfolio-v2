@@ -27,7 +27,7 @@ gsap.to(".name", {
   opacity: 1,
   color: "#FF482A",
   visibility: 'visible',
-  duration: 1,
+  duration: .5,
   scrollTrigger: {
     trigger: `.heroImg`,
     start: `center center`,
@@ -176,6 +176,25 @@ ScrollTrigger.create({
   onLeave: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 })
 });
 
+gsap.registerPlugin(ScrollTrigger);
+
+// Hide navbar when .contact-info section is in view
+ScrollTrigger.create({
+  trigger: ".contact-info",
+  start: "top top", // Trigger when the top of .contact-info reaches the top of the viewport
+  end: "bottom top", // Continue until the bottom of .contact-info reaches the top of the viewport
+  onEnter: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 }),
+  onLeaveBack: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }),
+  once: true // Ensure this trigger only fires once and doesn't reapply when scrolling back
+});
+
+// Ensure that the navbar remains hidden when scrolling down past .contact-info
+ScrollTrigger.create({
+  trigger: ".contact-info",
+  start: "top top",
+  end: "bottom bottom", // End when the .contact-info section is completely out of the viewport
+  onLeave: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 })
+});
 // Zoom Text Animation in Projects Section
 gsap.fromTo(".zoom-text",
   {
@@ -389,7 +408,17 @@ newImgs.forEach(img => {
   });
 });
 
-//contact
+//local time 
+
+function updateLocalTime() {
+  const now = new Date();
+  const options = { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+  const time = now.toLocaleTimeString('en-US', options);
+  document.getElementById('local-time').textContent = time;
+}
+
+setInterval(updateLocalTime, 1000); // Update every second
+updateLocalTime();
 
 
 

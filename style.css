@@ -61,10 +61,12 @@ h1{
 
 .logo {
   font-family: var(--og);
+  font-size: 2.5vh;
 }
 .logo2 {
   font-style: italic;
   font-family: var(--og);
+  font-size: 1.8vh;
 }
 
 #main{
@@ -242,8 +244,8 @@ animation: animate 2s linear forwards;
 }
 
 .section-title {
-  font-family: var(--og);
-  font-size: 1.2rem;
+  font-family: var(--bb);
+  font-size: 2.5vh;
 }
 
 .intro-text {
@@ -254,7 +256,7 @@ animation: animate 2s linear forwards;
 .hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease-in, visibility 1s ease-in;
+  transition: opacity .5s ease-in, visibility .5s ease-in;
 }
 
 .show {
@@ -265,7 +267,7 @@ animation: animate 2s linear forwards;
 .name, .title, #home > h1:not(.intro-text) {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease-in, visibility 1s ease-in;
+  transition: opacity .3s ease-in, visibility .3s ease-in;
 }
 
 .heroImg {
@@ -629,21 +631,22 @@ animation: animate 2s linear forwards;
 
 .card-contact p {
   font-family: var(--og); /* Use the specified font-family */
-  font-size: 1rem; /* Adjust font size as needed */
+  font-size: 4vh; /* Adjust font size as needed */
 }
 
 .card-contact h1 {
   font-family: var(--og); /* Use the specified font-family */
-  font-size: 3rem; /* Adjust font size as needed */
+  font-size: 12vh; /* Adjust font size as needed */
 }
 
 .button-two {
+  margin-top: 3.5vh;
   font-family: var(--og);
-  font-size: 1rem;
+  font-size: 2.5vh;
   font-weight: bold;
   text-decoration: none;
   color: var(--alpha); /* Text color */
-  padding: 1rem;
+  padding: 1.5vh;
   border: var(--charlie);  /* Border color */
   border-radius: 50%; /* Make the button circular */
   transition: all 0.3s ease;
@@ -651,8 +654,8 @@ animation: animate 2s linear forwards;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 6rem; /* Bigger size */
-  height: 6rem; /* Bigger size */
+  width: 10vw; /* Bigger size */
+  height: 10vh; /* Bigger size */
   overflow: hidden; /* Hide overflow to create the sliding effect */
   background-color: var(--charlie) /* Button color */
 }
@@ -690,5 +693,129 @@ animation: animate 2s linear forwards;
 
 
 
+.card-links {
+  font-family: var(--psc);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between top and bottom containers */
+}
 
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns items at the top */
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between each link */
+}
+
+.social-buttons {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  width: 12vw; /* Make the menu button 3 times larger */
+  height: 12vw; /* Same unit for height to keep aspect ratio */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 4vw; /* Adjusted width */
+  height: 4vw; /* Adjusted height to match width */
+  border-radius: 50%; /* Ensures it's a perfect circle */
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--alpha);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.btn i {
+  background: var(--alpha);
+  font-size: 4vh; /* Font size adjusted */
+}
+
+.btn:nth-child(1){
+  z-index: 1;
+  transition: 1s;
+}
+
+.btn:nth-child(2){transition-delay: 0s;}
+.btn:nth-child(3){transition-delay: .1s;}
+.btn:nth-child(4){transition-delay: .2s;}
+.btn:nth-child(5){transition-delay: .3s;}
+
+input:checked~#show-menu .btn:nth-child(1){
+  transform: translate(-50%, -50%) rotate(225deg);
+}
+
+input:checked~#show-menu .btn:not(:nth-child(1)){
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+
+}
+
+input:checked~#show-menu .btn:nth-child(2){
+  top: -30%;
+  opacity: 1;
+}
+
+input:checked~#show-menu .btn:nth-child(3){
+  top: 0%;
+  left: 130%;
+  opacity: 1;
+}
+
+input:checked~#show-menu .btn:nth-child(4){
+  top: 100%;
+  left: 130%;
+  opacity: 1;
+}
+input:checked~#show-menu .btn:nth-child(5){
+  top: 130%;
+  opacity: 1;
+}
+input:checked~#show-menu .btn:nth-child(6){
+  top: 100%;
+  left: -30%;
+  opacity: 1;
+}
+input:checked~#show-menu .btn:nth-child(7){
+  top: 0%;
+  left: -30%;
+  opacity: 1;
+}
+
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #ccc; /* Optional: for a separator line */
+}
+
+.info-left, .info-center, .info-right {
+  flex: 1;
+  text-align: center; /* Center text horizontally */
+}
+
+#local-time {
+  font-weight: bold; /* Make the time stand out */
+}
   
