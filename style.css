@@ -598,7 +598,7 @@ animation: animate 2s linear forwards;
   justify-content: center;
   align-items: center;
   width: 100vw; /* Full width of viewport */
-  height: 180vh; /* Full height of viewport or as needed */
+  height: 190vh; /* Full height of viewport or as needed */
   background-color: var(--alpha); /* Background color */
   overflow: hidden; /* Ensure no content overflow */
   margin: 0; /* Remove any default margin */
@@ -722,7 +722,6 @@ animation: animate 2s linear forwards;
 }
 .link-item {
   font-size: 5vh;
-  margin: 2.5vh;
 }
 .social-buttons {
   height: 50vh;
@@ -817,6 +816,7 @@ input:checked~#show-menu .btn:nth-child(5){
 
 
 .bottom-container {
+  height: 100%;
   position: relative; /* Ensure the pseudo-element is positioned relative to this element */
   display: flex;
   justify-content: space-between;
@@ -845,8 +845,6 @@ input:checked~#show-menu .btn:nth-child(5){
   font-weight: bold; /* Make the time stand out */
 }
 
-
-
 .contact-nav-head {
   font-size: 8vh;
   width: 100vw;
@@ -855,18 +853,21 @@ input:checked~#show-menu .btn:nth-child(5){
   align-items: center; /* Center items vertically */
   font-family: var(--og);
   margin: 0; /* Remove default margin for consistency */
-  padding: 0 2rem; /* Adjust padding to create space on the left and right */
+  padding: 0 2rem;
+  position: relative; /* Ensure the pseudo-element is positioned relative to this element */
 }
 
-.vroom {
-  display: block;
-  height: 2px; /* Height of the border */
+.contact-nav-head::before {
+  content: ""; /* Required to generate the pseudo-element */
+  position: absolute; /* Position it absolutely relative to the .contact-nav-head */
+  bottom: 0; /* Position it at the bottom of the .contact-nav-head */
+  right: 40%; /* Start the border from 40% from the right */
+  width: 60%; /* Set the width of the border */
+  height: 2px; /* Border thickness */
   background-color: grey; /* Border color */
-  width: 100%; /* Full width initially to center properly */
-  transform-origin: center; /* Ensure scaling happens from the center */
-  margin: 0; /* Center the element horizontally */
-  position: relative; /* Required for ScrollTrigger */
 }
+
+
 .contact-nav-head h1 {
   margin: 0; /* Remove default margin for consistency */
   flex: 1; /* Allow headings to grow and take up equal space */
@@ -885,3 +886,49 @@ input:checked~#show-menu .btn:nth-child(5){
   font-size: 3vh;
 }
 
+
+.button-three {
+  font-family: var(--bb);
+  color: var(--beta); 
+  transition: all 0.3s ease;
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15vw; /* Bigger size */
+  height: 12vh; /* Bigger size */
+  overflow: hidden; /* Hide overflow to create the sliding effect */
+  background-color: var(--alpha) /* Button color */
+}
+
+.text-before-two,
+.text-after-two {
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.text-before-two {
+  transform: translateY(0%);
+}
+
+.text-after-two {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.button-three:hover .text-before-two {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.button-three:hover .text-after-two {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.button-three:hover {
+  font-family: var(--og);
+  color: var(--charlie); /* Text color on hover */
+  background-color: var(--alpha); /* Button color on hover */
+  border: var(--charlie); /* Border color on hover */
+}

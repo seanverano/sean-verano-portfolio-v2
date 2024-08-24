@@ -421,36 +421,3 @@ setInterval(updateLocalTime, 1000); // Update every second
 updateLocalTime();
 
 
-//contact border lines
-
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.fromTo(".vroom", 
-  { 
-    width: "0%", // Start with zero width
-    x: "-100%" // Start off the left side
-  }, 
-  {
-    width: "100%", // Expand to full width
-    x: "0%", // Move to normal position
-    duration: .5, // Duration of the animation
-    scrollTrigger: {
-      trigger: ".vroom", // Element that triggers the animation
-      start: "top bottom", // When the top of the element hits the bottom of the viewport
-      end: "bottom", // When the bottom of the element hits the top of the viewport
-      scrub: true, // Smoothly animate based on scroll position
-     // Optional: add markers for debugging
-      onUpdate: (self) => {
-        // Update width and position based on scroll progress
-        const progress = self.progress * 100; // Get progress percentage
-        gsap.set(".vroom", {
-          width: `${progress}%`,
-          x: `${-100 + progress}%`
-        });
-      }
-    }
-  }
-);
-
-//contact nav animation
-
