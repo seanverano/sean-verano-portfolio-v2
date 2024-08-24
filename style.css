@@ -163,6 +163,7 @@ justify-content: center;
 align-items: center;
 font-family: var(--bb);
 box-sizing: border-box;
+margin: 0;
 }
 
 section:nth-of-type(1) {
@@ -343,47 +344,7 @@ animation: animate 2s linear forwards;
 
 /* TECH AND TOOLS (HORIZONTAL MARQUEE) */
 
-#about .moving-text {
-  background-color: var(--alpha);
-  overflow: hidden;
-  width: 100%;
-  margin: 10px 0;
-  font-family: var(--og);
-}
 
-#about .moving-text .text {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  animation: move linear infinite 20s;
-}
-
-#about .moving-text .text .first {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-#about .moving-text .text .first img {
-  height: 100px;
-  width: 60px;
-  margin: 0 30px;
-}
-
-#about .moving-text .text .first h1 {
-  font-size: 2vw;
-  text-transform: uppercase;
-}
-
-@keyframes move {
-  from {
-      transform: translateX(0%);
-  }
-
-  to {
-      transform: translateX(-100%);
-  }
-}
 
 #projects{
   position: relative;
@@ -638,7 +599,7 @@ animation: animate 2s linear forwards;
   font-family: var(--og); /* Use the specified font-family */
   font-size: 12vh; /* Adjust font size as needed */
 }
-
+/*card contact*/ 
 .button-two {
   margin-top: 3.5vh;
   font-family: var(--og);
@@ -932,3 +893,35 @@ input:checked~#show-menu .btn:nth-child(5){
   background-color: var(--alpha); /* Button color on hover */
   border: var(--charlie); /* Border color on hover */
 }
+
+.magic {
+  --purple: var(--charlie);
+  --violet: rgb(103, 58, 183);
+  --pink: rgb(244, 143, 177);
+  font-size: 12vh; /* Adjust the font size as needed */
+  font-weight: bold; /* Optional: make the text bold */
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--violet),
+    var(--pink),
+    var(--purple)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap; /* Prevent text from wrapping */
+  display: inline-block; /* Ensure the background applies only to the text */
+}
+
+@keyframes background-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/*tools frameworks*/
