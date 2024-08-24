@@ -694,6 +694,8 @@ animation: animate 2s linear forwards;
 
 
 .card-links {
+  height: 100vh;
+  width: 100vw;
   font-family: var(--psc);
   display: flex;
   flex-direction: column;
@@ -704,18 +706,26 @@ animation: animate 2s linear forwards;
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* Aligns items at the top */
+  width: 100%;
+}
+
+.nav-links,
+.social-buttons {
+  flex: 1; /* Ensure both elements take up equal space */
+  display: flex;
+  align-items: center; /* Center items vertically if needed */
 }
 
 .nav-links {
-  display: flex;
   flex-direction: column;
   gap: 10px; /* Space between each link */
 }
-
+.link-item {
+  font-size: 5vh;
+  margin: 2.5vh;
+}
 .social-buttons {
-  width: 100%;
   height: 50vh;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -723,10 +733,12 @@ animation: animate 2s linear forwards;
 .menu {
   width: 12vw; /* Make the menu button 3 times larger */
   height: 12vw; /* Same unit for height to keep aspect ratio */
+  border-radius: 50%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .btn {
@@ -744,11 +756,17 @@ animation: animate 2s linear forwards;
   justify-content: center;
   align-items: center;
   transition: all 0.3s;
+  
 }
-
-.btn i {
-  background: var(--alpha);
-  font-size: 4vh; /* Font size adjusted */
+.menu-btn{
+  border-radius: 50%;
+  height: 15vh;
+  width: 15vw;
+  font-size: 13vh;
+}
+.img-link {
+  background-color: var(--alpha);
+  height: 2vh; /* Font size adjusted */
 }
 
 .btn:nth-child(1){
@@ -771,43 +789,51 @@ input:checked~#show-menu .btn:not(:nth-child(1)){
 }
 
 input:checked~#show-menu .btn:nth-child(2){
-  top: -30%;
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, 0%);
   opacity: 1;
 }
 
 input:checked~#show-menu .btn:nth-child(3){
-  top: 0%;
-  left: 130%;
+  top: 50%;
+  left: -40%;
+  transform: translate(0%, -50%);
   opacity: 1;
 }
 
 input:checked~#show-menu .btn:nth-child(4){
-  top: 100%;
-  left: 130%;
+  top: 50%; /* Same vertical center as 9 PM */
+  left: 106%; /* Direct opposite of -40% (0% + 80%) */
+  transform: translate(0%, -50%); /* Same horizontal alignment as before */
   opacity: 1;
 }
 input:checked~#show-menu .btn:nth-child(5){
-  top: 130%;
-  opacity: 1;
-}
-input:checked~#show-menu .btn:nth-child(6){
-  top: 100%;
-  left: -30%;
-  opacity: 1;
-}
-input:checked~#show-menu .btn:nth-child(7){
-  top: 0%;
-  left: -30%;
+  top: 140%; /* Direct opposite of -40% (0% + 80%) */
+  left: 50%; /* Center horizontally as before */
+  transform: translate(-50%, -100%); /* Adjust for the button to align with its center */
   opacity: 1;
 }
 
 
 .bottom-container {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this element */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  border-top: 1px solid #ccc; /* Optional: for a separator line */
+  /* Remove the direct border-top */
+}
+
+.bottom-container::before {
+  content: ""; /* Required to generate the pseudo-element */
+  position: absolute; /* Position it absolutely relative to the .bottom-container */
+  top: 0;
+  left: 40%; /* Adjust left to the starting point */
+  width: 60%; /* Set the width of the border */
+  height: 2px; /* Border thickness */
+  background-color: grey; /* Border color */
+  /* No need for transform: translateX(-100%); */
 }
 
 .info-left, .info-center, .info-right {
@@ -818,4 +844,44 @@ input:checked~#show-menu .btn:nth-child(7){
 #local-time {
   font-weight: bold; /* Make the time stand out */
 }
-  
+
+
+
+.contact-nav-head {
+  font-size: 8vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between items */
+  align-items: center; /* Center items vertically */
+  font-family: var(--og);
+  margin: 0; /* Remove default margin for consistency */
+  padding: 0 2rem; /* Adjust padding to create space on the left and right */
+}
+
+.vroom {
+  display: block;
+  height: 2px; /* Height of the border */
+  background-color: grey; /* Border color */
+  width: 100%; /* Full width initially to center properly */
+  transform-origin: center; /* Ensure scaling happens from the center */
+  margin: 0; /* Center the element horizontally */
+  position: relative; /* Required for ScrollTrigger */
+}
+.contact-nav-head h1 {
+  margin: 0; /* Remove default margin for consistency */
+  flex: 1; /* Allow headings to grow and take up equal space */
+  text-align: center; /* Align text to the left within each heading */
+}
+
+.footer {
+  font-family: var(--og);
+  color: var(--charlie);
+  font-size: 3vh;
+}
+
+.footer-two {
+  font-family: var(--og);
+  color: var(--beta);
+  font-size: 3vh;
+}
+
