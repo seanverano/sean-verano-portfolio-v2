@@ -127,7 +127,7 @@ splitTypes.forEach((char) => {
                 start: 'top 80%',
                 end: 'top 20%',
                 scrub: true,
-                markers: false,
+
                 toggleActions: 'play play reverse reverse',
             }
         }
@@ -273,15 +273,12 @@ const tlThree = gsap.timeline({
     end: "+=300%",
     pin: true,
     scrub: true,
-    markers: true
   }
 });
 
 images.forEach((img, i) => {
   if (images[i + 1]) {
     tlThree.to(rightElements[i], { yPercent: -100 }, "+=0.5")
-      .to(img, { opacity: 0 }, "+=0.5")
-      .to(images[i + 1], { opacity: 1 }, "<")
       .to(rightElements[i + 1], { yPercent: 0 }, "<");
   }
 });
