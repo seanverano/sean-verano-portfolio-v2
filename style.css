@@ -4,11 +4,6 @@
 }
 
 @font-face {
-  font-family: 'IBM Plex Sans Condensed';
-  src: url('/fonts/IBMPlexSansCondensed-SemiBoldItalic.ttf') format('truetype');
-}
-
-@font-face {
   font-family: 'Overused Grotesk';
   src: url('assets/fonts/OverusedGrotesk-Bold.ttf') format('truetype');
 }
@@ -16,7 +11,6 @@
 :root {
   /* fonts */
   --bb: 'BiotifBlack', sans-serif;
-  --psc: 'IBM Plex Sans Condensed', sans-serif;
   --og: 'Overused Grotesk', sans-serif;
 
   /* colors */
@@ -261,7 +255,7 @@ animation: animate 2s linear forwards;
   color: var(--beta);
   text-align: center;
   line-height: .85;
-  font-family: var(--psc);
+  font-family: var(--bb);
   font-weight: 600; font-style: italic;
 }
 @keyframes flicker {
@@ -525,7 +519,7 @@ animation: animate 2s linear forwards;
   width: 10vw; /* Bigger size */
   height: 10vh; /* Bigger size */
   overflow: hidden; /* Hide overflow to create the sliding effect */
-  background-color: var(--charlie) /* Button color */
+  background-color: var(--charlie); /* Button color */
 }
 
 .text-before,
@@ -564,7 +558,7 @@ animation: animate 2s linear forwards;
 .card-links {
   height: 100vh;
   width: 100vw;
-  font-family: var(--psc);
+  font-family: var(--bb);
   display: flex;
   flex-direction: column;
   gap: 20px; /* Space between top and bottom containers */
@@ -581,7 +575,8 @@ animation: animate 2s linear forwards;
 .social-buttons {
   flex: 1; /* Ensure both elements take up equal space */
   display: flex;
-  align-items: center; /* Center items vertically if needed */
+  align-items: center;
+  font-family: var(--og); /* Center items vertically if needed */
 }
 
 .nav-links {
@@ -915,7 +910,7 @@ input:checked~#show-menu .btn:nth-child(5){
 /* 2nd about text */
 
 .pin-section {
-  font-family: var(--psc);
+  font-family: var(--bb);
   background-color: var(--alpha);
   color: var(--beta);
   height: 100vh;
@@ -957,7 +952,7 @@ hyphens: auto;
 /*test*/
 
 .exp {
-  font-family: var(--psc);
+  font-family: var(--bb);
   background-color: var(--alpha);
   color: var(--alpha);
   height: 50vh;
