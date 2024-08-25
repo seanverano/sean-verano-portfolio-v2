@@ -214,21 +214,6 @@ words.forEach((word, index) => {
   }, index * 0.05);
 });
 
-// Navbar Visibility Control
-ScrollTrigger.create({
-  trigger: "#projects",
-  start: "top bottom",
-  end: "bottom bottom",
-  onEnter: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }),
-  onLeave: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 })
-});
-
-ScrollTrigger.create({
-  trigger: "#project-section",
-  start: "top bottom",
-  onEnter: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }),
-  onLeave: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 })
-});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -270,48 +255,37 @@ gsap.fromTo(".zoom-text",
   }
 );
 
-// Project Section Interaction Animation
-document.addEventListener("DOMContentLoaded", () => {
-  function animateSection(sectionId) {
-    const section = document.querySelector(sectionId);
-    const cursor = document.querySelector(".cursor");
 
-    section.addEventListener("mouseenter", () => {
-      gsap.to(cursor, {
-        height: "100px",
-        width: "100px",
-        innerHTML: "<i class='fa-solid fa-volume-high'></i>",
-        fontSize: "25px",
-        background: "#E8E8E8",
-        margin: "20px",
-      });
 
-      gsap.to(section, {
-        background: "#0C0C0C",
-        color: "#E8E8E8",
-        duration: 0.5,
-      });
-    });
+//project pinned lateral animation
 
-    section.addEventListener("mouseleave", () => {
-      gsap.to(cursor, {
-        height: "18px",
-        width: "18px",
-        innerHTML: "",
-        background: "#0C0C0C",
-        margin: 0,
-      });
+gsap.registerPlugin(ScrollTrigger);
 
-      gsap.to(section, {
-        background: "#E8E8E8",
-        color: "#0C0C0C",
-        duration: 0.5,
-      });
-    });
+const images = gsap.utils.toArray(".left-content img");
+const rightElements = gsap.utils.toArray(".right-content .right-element");
+gsap.set(rightElements, { yPercent: 100, opacity: 1 });
+gsap.set(rightElements[0], { yPercent: 0, opacity: 1 });
+
+const tlThree = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".project-container",
+    start: "top top",
+    end: "+=300%",
+    pin: true,
+    scrub: true,
+    markers: true
   }
-  animateSection("#projects-section");
 });
 
+images.forEach((img, i) => {
+  if (images[i + 1]) {
+    tlThree.to(rightElements[i], { yPercent: -100 }, "+=0.5")
+      .to(img, { opacity: 0 }, "+=0.5")
+      .to(images[i + 1], { opacity: 1 }, "<")
+      .to(rightElements[i + 1], { yPercent: 0 }, "<");
+  }
+});
+tlThree.to({}, {}, "+=0.5");
 
 //contact section parallax animation
 
@@ -405,4 +379,6 @@ gsap.registerPlugin(ScrollTrigger);
     }
   );
   
-  
+  //test 
+
+
