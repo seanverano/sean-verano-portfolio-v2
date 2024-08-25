@@ -132,6 +132,59 @@ splitTypes.forEach((char) => {
         }
     );
 });
+// 2nd about highlight animation
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Create the timeline for the animation
+const tlTwo = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".pin-section",
+    start: "top top",
+    end: "+=500", // Adjust this to control the end of the scroll animation
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+  }
+});
+
+const nothighlights = document.querySelectorAll('.not-highlight');
+
+tlTwo.to(nothighlights, {
+  opacity: 1,
+  duration: 5,
+  ease: "power1.out"
+})
+.to(".reveal-two", {
+  opacity: 1,
+  duration: 5,
+  ease: "power1.out"
+}, "<"); 
+
+// Animate .highlight elements
+gsap.registerPlugin(ScrollTrigger);
+
+// Create a GSAP timeline for the highlights
+gsap.fromTo(".highlight",
+  {
+    opacity: 0, 
+    y: 20 // Start with a slight offset for a popping effect
+  }, 
+  {
+    opacity: 1,
+    y: 0, // End position
+    duration: 0.2,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: ".highlight", // Use a common trigger
+      start: "top 70%", // Start when the top of the first .highlight reaches 70% of the viewport height
+      end: "top 48%", // End when the top of the first .highlight reaches 48% of the viewport height
+      scrub: true, // Smooth animation as you scroll
+      toggleActions: "play none none reverse", // Play on scroll down, reverse on scroll up
+    }
+  }
+);
+
 
 // About Section Text Animation
 gsap.registerPlugin(ScrollTrigger);
@@ -198,12 +251,14 @@ ScrollTrigger.create({
 // Zoom Text Animation in Projects Section
 gsap.fromTo(".zoom-text",
   {
-    scale: 3,
-    opacity: 1
+    scale: 7,
+    opacity: 1,
+    color: "#E8E8E8",
   },
   {
     scale: .75,
     duration: 1,
+    color: "#FF482A",
     scrollTrigger: {
       trigger: "#projects",
       start: "top top",
@@ -345,49 +400,22 @@ if (aboutIntro) {
 }
 
 
-//test JS
-const heading = document.querySelector('h1');
-const headingSplit = new SplitType(heading);
+//contact section parallax animation
+
 const originalImgs = gsap.utils.toArray('.contact-img.original');
 const newImgs = gsap.utils.toArray('.contact-img.new');
-
-// Get all the spans (letters) created by SplitType
-const letters = heading.querySelectorAll('.char');
 
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-// For each letter, set up a GSAP animation with ScrollTrigger
-letters.forEach((letter, index) => {
-  const randomYPercent = getRandom(70, 1100);
-
-  gsap.fromTo(letter, 
-      { 
-          yPercent: -randomYPercent,
-          opacity: 0,
-      },
-      {
-          yPercent: 0,
-          opacity: 1,
-          scrollTrigger: {
-              trigger: heading,
-              start: "top bottom",
-              end: "bottom center",
-              scrub: true,
-          }
-      }
-  );
-});
-
-// Animate original images moving up
 originalImgs.forEach(img => {
   const speed = img.dataset.speed;
   gsap.to(img, {
       yPercent: speed * -100,
       ease: 'none',
       scrollTrigger: {
-          trigger: img,
+          trigger: originalImgs,
           start: 'top bottom',
           scrub: true
       }
@@ -401,7 +429,7 @@ newImgs.forEach(img => {
       yPercent: speed * 100, // Reverse the direction by using positive value
       ease: 'none',
       scrollTrigger: {
-          trigger: img,
+          trigger: newImgs,
           start: 'top bottom',
           scrub: true
       }
@@ -421,6 +449,5 @@ setInterval(updateLocalTime, 1000); // Update every second
 updateLocalTime();
 
 
-//tools/technology/framework
 
 

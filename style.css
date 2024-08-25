@@ -155,10 +155,6 @@ margin: 0;
 }
 
 section:nth-of-type(1) {
-background: var(--alpha);
-}
-
-section:nth-of-type(2) {
 background: var(--beta);
 }
 
@@ -524,7 +520,7 @@ animation: animate 2s linear forwards;
   }
 
   
-  h1.conheader {
+  .conheader {
     position: absolute; /* Keep the heading fixed relative to #contacts */
     top: 50%; /* Center vertically within #contacts */
     left: 50%; /* Center horizontally */
@@ -992,3 +988,58 @@ input:checked~#show-menu .btn:nth-child(5){
   }
 }
 
+/* 2nd about text */
+
+.pin-section {
+  font-family: var(--psc);
+  background-color: var(--alpha);
+  color: var(--beta);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.highlight {
+  display: inline-block; /* Ensures the element behaves like an inline block */
+  font-size: 4vw; /* Adjust font size as needed */
+  font-weight: bold; /* Optional: Makes the text bold */
+  color: var(--alpha); /* Text color */
+  background-color: var(--charlie); /* Background color behind the text */
+  border: 1px solid var(--border-color); /* Border color and width */
+  border-radius: 4px; /* Optional: Adds rounded corners */
+  padding: 3px; /* Space between the text and the border */
+}
+.reveal-two {
+  color: var(--beta);
+  display: inline-flex;
+  flex-wrap: wrap;
+transition: color 1s;
+text-align: center;
+font-size: 4vw; /* Adjust font size as needed */
+line-height: 1.4; /* Adjust line height for better readability */
+width: 80vw; /* Prevent overflow */
+white-space: pre-wrap; /* Preserve whitespace and handle line breaks */
+hyphens: auto;  
+}
+.not-highlight {
+  opacity: 0;
+  color: var(--beta);
+}
+
+/*test*/
+
+.exp {
+  font-family: var(--psc);
+  background-color: var(--alpha);
+  color: var(--beta);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
