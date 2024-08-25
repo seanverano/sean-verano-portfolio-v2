@@ -53,6 +53,7 @@ gsap.to(".hidden", {
   }
 });
 
+
 // Moving Text Animation
 document.addEventListener("DOMContentLoaded", () => {
   function animateMovingText() {
@@ -251,9 +252,9 @@ ScrollTrigger.create({
 // Zoom Text Animation in Projects Section
 gsap.fromTo(".zoom-text",
   {
-    scale: 7,
+    scale: 30,
     opacity: 1,
-    color: "#E8E8E8",
+    color: "#0C0C0C",
   },
   {
     scale: .75,
@@ -311,94 +312,6 @@ document.addEventListener("DOMContentLoaded", () => {
   animateSection("#projects-section");
 });
 
-// Image Zoom and Hero Section Scaling
-gsap.registerPlugin(ScrollTrigger);
-window.addEventListener("load", () => {
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: ".wrapper",
-        start: "top top",
-        end: "+=150%",
-        pin: true,
-        scrub: true,
-      }
-    })
-    .to("img", {
-      scale: 2,
-      z: 350,
-      transformOrigin: "center center",
-      ease: "power1.inOut"
-    })
-    .to(
-      ".section.hero",
-      {
-        scale: 1.1,
-        transformOrigin: "center center",
-        ease: "power1.inOut"
-      },
-      "<"
-    );
-});
-
-
-//about intro list animation
-
-const phrases = ["Introduction", "Profile", "Overview", "Details", "Background"];
-  const textElement = document.getElementById('about-list');
-  let index = 0;
-
-  function rotateText() {
-    textElement.textContent = phrases[index];
-    index = (index + 1) % phrases.length;
-  }
-
-  setInterval(rotateText, 1000);
-
-  function spark(event) {
-    // Get the container element
-    const aboutIntro = document.getElementById('about-intro');
-    
-    if (aboutIntro) {
-        let s = document.createElement('s');
-        
-        // Get the relative position within #about-intro
-        const rect = aboutIntro.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        
-        s.style.left = `${x}px`;
-        s.style.top = `${y}px`;
-
-        // Randomly set the scale of the spark
-        s.style.transform = `scale(${Math.random() * 2 + 1})`;
-
-        // Add random CSS custom properties
-        s.style.setProperty('--x', getRandomTransitionValue());
-        s.style.setProperty('--y', getRandomTransitionValue());
-
-        // Append the spark to the container
-        aboutIntro.appendChild(s);
-
-        // Remove the spark after the animation ends
-        setTimeout(() => {
-            if (s.parentElement) {
-                s.parentElement.removeChild(s);
-            }
-        }, 2000); // Match the duration of the animation
-    }
-}
-
-function getRandomTransitionValue() {
-    return `${Math.random() * 400 - 200}px`;
-}
-
-// Add event listener to the specific container
-const aboutIntro = document.getElementById('about-intro');
-if (aboutIntro) {
-    aboutIntro.addEventListener('mousemove', spark);
-}
-
 
 //contact section parallax animation
 
@@ -449,5 +362,47 @@ setInterval(updateLocalTime, 1000); // Update every second
 updateLocalTime();
 
 
+//test
+
+/* -- Text effect -- */
+
+gsap.registerPlugin(ScrollTrigger);
+
+  const marqueeWidth = document.querySelector(".marquee-content").offsetWidth;
+  const viewportWidth = window.innerWidth;
+
+  gsap.to(".marquee-content", 
+    {
+    x: -(marqueeWidth + viewportWidth),
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".marquee-container",
+      start: "top center",
+      end: () => "+=" + marqueeWidth,
+      scrub: true,
+    }
+  });
 
 
+  const marqueeContentTwo = document.querySelector(".marquee-content-two");
+  const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
+  const viewportWidthTwo = window.innerWidth;
+  const firstWordWidth = 2000;  // Estimate or measure the width of the first word
+  
+  gsap.fromTo(".marquee-content-two", 
+    {
+      x: viewportWidthTwo - firstWordWidth,  // Start with the second word in view
+    },
+    {
+      x: +marqueeWidthTwo,  // Continue scrolling until the entire content is out of view
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".marquee-container-two",
+        start: "top center",
+        end: () => "+=" + marqueeWidthTwo,
+        scrub: true,
+      }
+    }
+  );
+  
+  

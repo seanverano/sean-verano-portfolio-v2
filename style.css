@@ -174,7 +174,7 @@ word-break: break-word; /* Break words to prevent overflow */
 display: block; /* Use block layout for consistency */
 transition: color 1s;
 text-align: center;
-font-size: 2rem; /* Adjust font size as needed */
+font-size: 4vw; /* Adjust font size as needed */
 line-height: 1.4; /* Adjust line height for better readability */
 width: 80vw; /* Prevent overflow */
 white-space: pre-wrap; /* Preserve whitespace and handle line breaks */
@@ -183,7 +183,7 @@ hyphens: auto; /* Automatic hyphenation if supported */
 
 #about-intro {
 position: relative;
-height: 100vh;
+height: 20vh;
 width: 100vw;
 background-color: var(--beta);
 display: flex;
@@ -192,20 +192,6 @@ justify-content: center;
 text-align: center;
 }
 
-.about-wrapper {
-position: absolute;
-bottom: 0;
-right: 0;
-padding: 1rem;
-}
-
-#about-list {
-margin-right: 2rem;
-
-font-size: 4rem;
-color: var(--alpha);
-font-family: var(--og);
-}
 
 s {
 position: absolute;
@@ -511,9 +497,9 @@ animation: animate 2s linear forwards;
    /* Ensure no overflow issues */
 
   img {
-    margin: 0 7vw; /* Converted from 15rem */
-    height: 30vh;   /* Converted from 20rem */
-    width: 12vw;  /* Converted from 12rem */
+    margin: 0 2vw; /* Converted from 15rem */
+    height: 20em;   /* Converted from 20rem */
+    width: 12em;  /* Converted from 12rem */
     object-fit: cover;
    /* Ensure images are placed according to their speed */
     z-index: 0;
@@ -686,8 +672,8 @@ animation: animate 2s linear forwards;
 }
 
 .btn {
-  width: 4vw; /* Adjusted width */
-  height: 4vw; /* Adjusted height to match width */
+  width: 2em; /* Adjusted width */
+  height: 2em; /* Adjusted height to match width */
   border-radius: 50%; /* Ensures it's a perfect circle */
   position: absolute;
   overflow: hidden;
@@ -710,7 +696,8 @@ animation: animate 2s linear forwards;
 }
 .img-link {
   background-color: var(--alpha);
-  height: 2vh; /* Font size adjusted */
+  height: 1.5em;
+  width: 1.5em;
 }
 
 .btn:nth-child(1){
@@ -995,6 +982,7 @@ input:checked~#show-menu .btn:nth-child(5){
   background-color: var(--alpha);
   color: var(--beta);
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1034,12 +1022,45 @@ hyphens: auto;
 .exp {
   font-family: var(--psc);
   background-color: var(--alpha);
-  color: var(--beta);
-  height: 100vh;
+  color: var(--alpha);
+  height: 50vh;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
+
+/*test*/
+
+.marquee-container {
+  height: 25vh;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 20vh;
+  background-color: var(--beta);
+  color: grey;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.marquee-content {
+  display: inline-block; }
+
+  .marquee-container-two {
+    height: 25vh;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size:  20vh;
+    background-color: var(--beta);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .marquee-content-two {
+    display: inline-block; }
