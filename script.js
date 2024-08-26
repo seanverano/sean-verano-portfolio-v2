@@ -3,7 +3,7 @@
 function startLoader() {
   let counterElement = document.querySelector(".counter");
   let currentValue = 0;
-  let duration = 3000; // Duration of the counter animation in milliseconds
+  let duration = 3000; 
   let startTime = null;
 
   function updateCounter(timestamp) {
@@ -19,7 +19,10 @@ function startLoader() {
       if (percent < 1) {
           requestAnimationFrame(updateCounter);
       } else {
-          counterElement.textContent = "100"; // Ensure it ends exactly at 100
+          counterElement.textContent = "100"; 
+          document.querySelector("#main").classList.remove("hidden");
+          document.querySelector("#main").classList.add("visible");
+          document.querySelector(".preloader-text").style.display = "none";
       }
   }
 
@@ -47,23 +50,29 @@ gsap.to(".bar", {
 //home/landing page animation
 
 gsap.from([".name", ".name-two"], {
-duration: 1.5, // Duration of the animation
-delay: 4,      // Start after 4 seconds
-y: 700,        // Initial vertical position
+duration: 1.5, 
+delay: 4,      
+y: 700,        
 stagger: {
-    amount: 0.5,  // Stagger amount between elements
-    start: 0.2    // Delay before the first element starts animating
+    amount: 0.5,  
+    start: 0.2    
 },
-ease: "power4.inOut" // Easing for smooth animation
+ease: "power4.inOut" 
+});
+
+gsap.from(".role", {
+  duration: 1.5,   
+  delay: 5.5,      
+  x: "100%",         
+  ease: "power4.inOut" 
 });
 
 gsap.from(".role-text", {
-  duration: 1.5,   // Duration of the slide animation
-  delay: 6,        // Start after the previous animations are done
-  x: -300,         // Start from off the screen (left)
-  ease: "power4.inOut" // Easing for smooth animation
+  duration: 1.5,   
+  delay: 6.5,         
+  opacity: 0,      
+  ease: "power4.inOut" 
 });
-
 
 // Moving Text Animation
 
@@ -107,8 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
   animateMovingText();
 });
 
-
 // About Section Text Animation
+
 gsap.registerPlugin(ScrollTrigger);
 
 const splitTypes = document.querySelectorAll('.reveal-type');
@@ -117,7 +126,7 @@ splitTypes.forEach((char) => {
     const bg = char.dataset.bgColor;
     const fg = char.dataset.fgColor;
 
-    // Change SplitType type from 'chars' to 'words'
+    
     const text = new SplitType(char, { types: 'words' });
 
     gsap.fromTo(
@@ -145,16 +154,16 @@ splitTypes.forEach((char) => {
         }
     );
 });
+
 // 2nd about highlight animation
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Create the timeline for the animation
 const tlTwo = gsap.timeline({
   scrollTrigger: {
     trigger: ".pin-section",
     start: "top top",
-    end: "+=500", // Adjust this to control the end of the scroll animation
+    end: "+=500", 
     scrub: true,
     pin: true,
     anticipatePin: 1,
@@ -174,30 +183,27 @@ tlTwo.to(nothighlights, {
   ease: "power1.out"
 }, "<"); 
 
-// Animate .highlight elements
 gsap.registerPlugin(ScrollTrigger);
 
-// Create a GSAP timeline for the highlights
 gsap.fromTo(".highlight",
   {
     opacity: 0, 
-    y: 20 // Start with a slight offset for a popping effect
+    y: 20 
   }, 
   {
     opacity: 1,
-    y: 0, // End position
+    y: 0, 
     duration: 0.2,
     ease: "power1.out",
     scrollTrigger: {
-      trigger: ".highlight", // Use a common trigger
-      start: "top 70%", // Start when the top of the first .highlight reaches 70% of the viewport height
-      end: "top 48%", // End when the top of the first .highlight reaches 48% of the viewport height
-      scrub: true, // Smooth animation as you scroll
-      toggleActions: "play none none reverse", // Play on scroll down, reverse on scroll up
+      trigger: ".highlight", 
+      start: "top 70%", 
+      end: "top 48%", 
+      scrub: true, 
+      toggleActions: "play none none reverse", 
     }
   }
 );
-
 
 // About Section Text Animation
 gsap.registerPlugin(ScrollTrigger);
@@ -250,14 +256,14 @@ gsap.registerPlugin(ScrollTrigger);
   const marqueeContentTwo = document.querySelector(".marquee-content-two");
   const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
   const viewportWidthTwo = window.innerWidth;
-  const firstWordWidthTwo = 1310;  // Estimate or measure the width of the first word
+  const firstWordWidthTwo = 1310;  
   
   gsap.fromTo(".marquee-content-two", 
     {
-      x: viewportWidthTwo - firstWordWidthTwo,  // Start with the second word in view
+      x: viewportWidthTwo - firstWordWidthTwo,  
     },
     {
-      x: +marqueeWidthTwo,  // Continue scrolling until the entire content is out of view
+      x: +marqueeWidthTwo,  
       ease: "none",
       scrollTrigger: {
         trigger: ".marquee-container-two",
@@ -268,23 +274,25 @@ gsap.registerPlugin(ScrollTrigger);
     }
   );
 
+
+//navbar visibility animation
+
+
 gsap.registerPlugin(ScrollTrigger);
 
-// Hide navbar when .contact-info section is in view
 ScrollTrigger.create({
   trigger: ".contact-info",
-  start: "top top", // Trigger when the top of .contact-info reaches the top of the viewport
-  end: "bottom top", // Continue until the bottom of .contact-info reaches the top of the viewport
+  start: "top top", 
+  end: "bottom top", 
   onEnter: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 }),
   onLeaveBack: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }),
-  once: true // Ensure this trigger only fires once and doesn't reapply when scrolling back
+  once: true 
 });
 
-// Ensure that the navbar remains hidden when scrolling down past .contact-info
 ScrollTrigger.create({
   trigger: ".contact-info",
   start: "top top",
-  end: "bottom bottom", // End when the .contact-info section is completely out of the viewport
+  end: "bottom bottom", 
   onLeave: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 })
 });
 
@@ -312,29 +320,27 @@ gsap.fromTo(".zoom-text",
   }
 );
 
-//test project color animation
+//project reverse color animation
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Function to animate colors on hover
+
 function animateColors(element) {
   gsap.to(element, {
-    backgroundColor: "#0c0c0c",  // New background color on hover
-    color: "#e8e8e8",            // New text color on hover
-    duration: 0.5,               // Animation duration
+    backgroundColor: "#0c0c0c",  
+    color: "#e8e8e8",            
+    duration: 0.5,              
   });
 }
 
-// Function to revert colors on mouse leave
 function revertColors(element) {
   gsap.to(element, {
-    backgroundColor: "#e8e8e8",  // Original background color
-    color: "#0c0c0c",            // Original text color
-    duration: 0.5,               // Animation duration
+    backgroundColor: "#e8e8e8",  
+    color: "#0c0c0c",            
+    duration: 0.5,               
   });
 }
 
-// Event listeners for hover and leave
 const projectContainer = document.querySelector(".project-container");
 
 projectContainer.addEventListener("mouseover", () => animateColors(projectContainer));
@@ -345,38 +351,36 @@ projectContainer.addEventListener("mouseleave", () => revertColors(projectContai
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Create a GSAP timeline
+
 let tlFour = gsap.timeline({
   scrollTrigger: {
-    trigger: ".left-container",   // Trigger the animation when .left-container comes into view
-    start: "top 80%",             // Start the animation when the top of .left-container reaches 80% of the viewport
-    end: "bottom 20%",            // End the animation when the bottom of .left-container reaches 20% of the viewport
-    toggleActions: "play none none reverse", // Play the animation forward when entering, reverse when leaving
+    trigger: ".left-container",  
+    start: "top 80%",             
+    end: "bottom 20%",            
+    toggleActions: "play none none reverse", 
   }
 });
 
-// Slide up the entire .left-content
 tlFour.from(".left-content", {
-  y: 100,         // Slide up from 100px below
-  opacity: 0,     // Start from 0 opacity (invisible)
-  duration: 1,    // Duration of the animation
-  ease: "power2.out" // Easing for smooth animation
+  y: 100,         
+  opacity: 0,     
+  duration: 1,    
+  ease: "power2.out" 
 })
 
-// Add a 2-second delay and then show the .centered-text
   .from(".centered-text", {
-    y: 50,         // Slide up from 50px below
-    opacity: 0,    // Start from 0 opacity (invisible)
-    duration: 1,   // Duration of the animation
-    ease: "power2.out" // Easing for smooth animation
-  }, "+=.1.5");       // "+=
+    y: 50,        
+    opacity: 0,    
+    duration: 1,  
+    ease: "power2.out" 
+  }, "+=.1.5");      
 
 //right container animation fade in
 
 tlFour.from(".right-content", {
-  opacity: 0,             // Start fully transparent
-  duration: 1.5,          // Duration of the fade-in effect
-  ease: "power2.out",     // Easing for smooth animation
+  opacity: 0,            
+  duration: 1.5,          
+  ease: "power2.out",     
 });
 
 //project pinned lateral animation
@@ -428,11 +432,11 @@ originalImgs.forEach(img => {
   });
 });
 
-// Animate new images moving down (opposite direction)
+
 newImgs.forEach(img => {
   const speed = img.dataset.speed;
   gsap.to(img, {
-      yPercent: speed * 100, // Reverse the direction by using positive value
+      yPercent: speed * 100, 
       ease: 'none',
       scrollTrigger: {
           trigger: newImgs,
@@ -441,7 +445,6 @@ newImgs.forEach(img => {
       }
   });
 });
-
 
 //local time 
 
@@ -452,10 +455,10 @@ function updateLocalTime() {
   document.getElementById('local-time').textContent = time;
 }
 
-setInterval(updateLocalTime, 1000); // Update every second
+setInterval(updateLocalTime, 1000); 
 updateLocalTime();
 
   
-  //test 
+//test 
 
 
