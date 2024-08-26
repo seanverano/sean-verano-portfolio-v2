@@ -1,60 +1,72 @@
+//preloader animation
 
+function startLoader() {
+  let counterElement = document.querySelector(".counter");
+  let currentValue = 0;
+  let duration = 3000; // Duration of the counter animation in milliseconds
+  let startTime = null;
 
-// Hero Section Animation
-
-gsap.to("#page", {
-  scrollTrigger: {
-    trigger: `.heroImg`,
-    start: `top 10%`,
-    end: `bottom top`,
-    pin: true,
-    scrub: 0.5
+  function updateCounter(timestamp) {
+      if (!startTime) startTime = timestamp;
+      let progress = timestamp - startTime;
+      
+      // Calculate the progress percentage
+      let percent = Math.min(progress / duration, 1);
+      currentValue = Math.floor(percent * 100);
+      
+      counterElement.textContent = currentValue;
+      
+      if (percent < 1) {
+          requestAnimationFrame(updateCounter);
+      } else {
+          counterElement.textContent = "100"; // Ensure it ends exactly at 100
+      }
   }
+
+  requestAnimationFrame(updateCounter);
+}
+
+startLoader();
+
+gsap.to([".counter", ".preloader-text"], {
+    duration: 0.25,
+    delay: 3.5,
+    opacity: 0,
 });
 
-gsap.to(".heroImg", {
-  opacity: 0,
-  scale: 0, 
-  scrollTrigger: {
-    trigger: `.name`,
-    start: `top top`,
-    end: `bottom top`,
-    scrub: .25
-  }
+gsap.to(".bar", {
+  duration: 1.5,
+  delay: 3.5,
+  height: 0,
+  stagger: {
+      amount: 0.5
+  },
+  ease: "power4.inOut",
 });
 
-gsap.to(".name", {
-  opacity: 1,
-  color: "#FF4D4D",
-  visibility: 'visible',
-  duration: .5,
-  scrollTrigger: {
-    trigger: `.heroImg`,
-    start: `center center`,
-    end: `+=200`,
-    scrub: true,
-    onEnter: () => {
-      document.querySelector("#home .name").style.animationPlayState = "running";
-    },
-    onLeaveBack: () => {
-      document.querySelector("#home .name").style.animationPlayState = "paused";
-    }
-  }
+//home/landing page animation
+
+gsap.from([".name", ".name-two"], {
+duration: 1.5, // Duration of the animation
+delay: 4,      // Start after 4 seconds
+y: 700,        // Initial vertical position
+stagger: {
+    amount: 0.5,  // Stagger amount between elements
+    start: 0.2    // Delay before the first element starts animating
+},
+ease: "power4.inOut" // Easing for smooth animation
 });
 
-gsap.to(".hidden", {
-  opacity: 1,
-  visibility: 'visible',
-  scrollTrigger: {
-    trigger: `.name`,
-    start: `bottom center`,
-    end: `+=200`,
-    scrub: 0.25
-  }
+gsap.from(".role-text", {
+  duration: 1.5,   // Duration of the slide animation
+  delay: 6,        // Start after the previous animations are done
+  x: -300,         // Start from off the screen (left)
+  ease: "power4.inOut" // Easing for smooth animation
 });
 
 
 // Moving Text Animation
+
 document.addEventListener("DOMContentLoaded", () => {
   function animateMovingText() {
     const movingText = document.querySelector(".moving-text");
@@ -214,7 +226,47 @@ words.forEach((word, index) => {
   }, index * 0.05);
 });
 
+//BACKGROUND/EXPERIENCE MARQUEE
 
+gsap.registerPlugin(ScrollTrigger);
+
+  const marqueeWidth = document.querySelector(".marquee-content").offsetWidth;
+  const viewportWidth = window.innerWidth;
+
+
+  gsap.to(".marquee-content",
+    {
+    x: -(marqueeWidth + viewportWidth),
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".marquee-container",
+      start: "top center",
+      end: () => "+=" + marqueeWidth,
+      scrub: true,
+    }
+  });
+
+
+  const marqueeContentTwo = document.querySelector(".marquee-content-two");
+  const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
+  const viewportWidthTwo = window.innerWidth;
+  const firstWordWidthTwo = 1310;  // Estimate or measure the width of the first word
+  
+  gsap.fromTo(".marquee-content-two", 
+    {
+      x: viewportWidthTwo - firstWordWidthTwo,  // Start with the second word in view
+    },
+    {
+      x: +marqueeWidthTwo,  // Continue scrolling until the entire content is out of view
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".marquee-container-two",
+        start: "top center",
+        end: () => "+=" + marqueeWidthTwo,
+        scrub: true,
+      }
+    }
+  );
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -235,7 +287,9 @@ ScrollTrigger.create({
   end: "bottom bottom", // End when the .contact-info section is completely out of the viewport
   onLeave: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 })
 });
+
 // Zoom Text Animation in Projects Section
+
 gsap.fromTo(".zoom-text",
   {
     scale: 30,
@@ -401,50 +455,6 @@ function updateLocalTime() {
 setInterval(updateLocalTime, 1000); // Update every second
 updateLocalTime();
 
-
-//test
-
-/* -- Text effect -- */
-
-gsap.registerPlugin(ScrollTrigger);
-
-  const marqueeWidth = document.querySelector(".marquee-content").offsetWidth;
-  const viewportWidth = window.innerWidth;
-
-
-  gsap.to(".marquee-content",
-    {
-    x: -(marqueeWidth + viewportWidth),
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".marquee-container",
-      start: "top center",
-      end: () => "+=" + marqueeWidth,
-      scrub: true,
-    }
-  });
-
-
-  const marqueeContentTwo = document.querySelector(".marquee-content-two");
-  const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
-  const viewportWidthTwo = window.innerWidth;
-  const firstWordWidthTwo = 1310;  // Estimate or measure the width of the first word
-  
-  gsap.fromTo(".marquee-content-two", 
-    {
-      x: viewportWidthTwo - firstWordWidthTwo,  // Start with the second word in view
-    },
-    {
-      x: +marqueeWidthTwo,  // Continue scrolling until the entire content is out of view
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".marquee-container-two",
-        start: "top center",
-        end: () => "+=" + marqueeWidthTwo,
-        scrub: true,
-      }
-    }
-  );
   
   //test 
 
