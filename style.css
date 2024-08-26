@@ -16,7 +16,7 @@
   /* colors */
   --alpha: #E8E8E8;
   --beta: #0C0C0C;
-  --charlie: #FF482A;
+  --charlie: #FF4D4D;
 }
 
 
@@ -105,7 +105,7 @@ a {
   color: var(--alpha);
   font-family: var(--og);
   display: inline-block;
-  padding: 1px 30px;
+  padding: 1px 15px;
   border-radius: 10px;
   background-color: var(--beta);
   letter-spacing: 2px;
@@ -307,8 +307,6 @@ animation: animate 2s linear forwards;
   transition: color 0.3s; 
 }
 
-/* TECH AND TOOLS (HORIZONTAL MARQUEE) */
-
 
 
 #projects{
@@ -392,14 +390,15 @@ video {
     align-items: center;
     text-align: center;
     gap: 1rem;
+    color: var(--alpha);
 }
 .project-btn {
   height: 5vh;
   width: 9vw;
   font-size: 1.5vw;
   background: transparent;
-  color: var(--beta);
-  border: 2px solid var(--beta);
+  color: var(--alpha);
+  border: 2px solid var(--alpha);
   border-radius: 3px;
   cursor: pointer;
   transition: 0.5s;
@@ -415,7 +414,7 @@ video {
   left: 0;
   width: 0;
   height: 100%;
-  background: var(--beta);
+  background: var(--alpha);
   z-index: -1;
   transition: 0.5s;
 }
@@ -425,7 +424,7 @@ video {
 }
 
 .project-btn:hover {
-  color: var(--alpha);
+  color: var(--beta);
 }
 
 .project-btn:nth-of-type(2)::before {
@@ -435,7 +434,7 @@ video {
   left: 0;
   width: 100%;
   height: 0;
-  background: var(--beta);
+  background: var(--alpha);
   transition: 0.5s;
   z-index: -1;
 }
@@ -449,15 +448,17 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #191919;
+  background-color: var(--alpha);
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .left-content {
-  width: 100%;
-  height: 100%;
+  background-color: var(--beta);
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
   position: relative;
   overflow: hidden;
 }
@@ -476,10 +477,9 @@ video {
 }
 .centered-text {
   position: absolute; /* Position relative to the nearest positioned ancestor */
-
   color: var(--alpha); /* Text color (adjust as needed) */
   text-align: left; 
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: var(--og);
   padding: 10%; 
 }
@@ -502,7 +502,6 @@ video {
   transition: transform 0.3s ease-out;
   white-space: nowrap; /* Prevent text from wrapping */
 }
-
 
 
 
@@ -922,7 +921,7 @@ input:checked~#show-menu .btn:nth-child(5){
 /*tools frameworks*/
 
 .tools-section {
-  background-color: var(--alpha);
+  background-color: var(--beta);
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1049,9 +1048,8 @@ hyphens: auto;
 
 .exp {
   font-family: var(--bb);
-  background-color: var(--alpha);
-  color: var(--alpha);
-  height: 50vh;
+  background-color: var(--charlie);
+  height: 44vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1065,13 +1063,13 @@ hyphens: auto;
 /*test*/
 
 .marquee-container {
-  height: 25vh;
+  height: 20vh;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  font-size: 20vh;
-  background-color: var(--beta);
-  color: grey;
+  font-size: 15vh;
+  background-color: var(--charlie);
+  color: var(--alpha);
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1080,12 +1078,13 @@ hyphens: auto;
   display: inline-block; }
 
   .marquee-container-two {
-    height: 25vh;
+    height: 20vh;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    font-size:  20vh;
-    background-color: var(--beta);
+    font-size:  15vh;
+    background-color: var(--charlie);
+    color: var(--beta);
     margin: 0;
     padding: 0;
     width: 100%;

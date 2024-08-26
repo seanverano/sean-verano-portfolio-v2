@@ -25,7 +25,7 @@ gsap.to(".heroImg", {
 
 gsap.to(".name", {
   opacity: 1,
-  color: "#FF482A",
+  color: "#FF4D4D",
   visibility: 'visible',
   duration: .5,
   scrollTrigger: {
@@ -215,6 +215,7 @@ words.forEach((word, index) => {
 });
 
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 // Hide navbar when .contact-info section is in view
@@ -240,11 +241,13 @@ gsap.fromTo(".zoom-text",
     scale: 30,
     opacity: 1,
     color: "#0C0C0C",
+    backgroundColor: "#0C0C0C",
   },
   {
     scale: .75,
     duration: 1,
-    color: "#FF482A",
+    color: "#FF4D4D",
+    backgroundColor: "#E8E8E8",
     scrollTrigger: {
       trigger: "#projects",
       start: "top top",
@@ -255,7 +258,72 @@ gsap.fromTo(".zoom-text",
   }
 );
 
+//test project color animation
 
+gsap.registerPlugin(ScrollTrigger);
+
+// Function to animate colors on hover
+function animateColors(element) {
+  gsap.to(element, {
+    backgroundColor: "#0c0c0c",  // New background color on hover
+    color: "#e8e8e8",            // New text color on hover
+    duration: 0.5,               // Animation duration
+  });
+}
+
+// Function to revert colors on mouse leave
+function revertColors(element) {
+  gsap.to(element, {
+    backgroundColor: "#e8e8e8",  // Original background color
+    color: "#0c0c0c",            // Original text color
+    duration: 0.5,               // Animation duration
+  });
+}
+
+// Event listeners for hover and leave
+const projectContainer = document.querySelector(".project-container");
+
+projectContainer.addEventListener("mouseover", () => animateColors(projectContainer));
+projectContainer.addEventListener("mouseleave", () => revertColors(projectContainer));
+
+
+// project container left content animation
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Create a GSAP timeline
+let tlFour = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".left-container",   // Trigger the animation when .left-container comes into view
+    start: "top 80%",             // Start the animation when the top of .left-container reaches 80% of the viewport
+    end: "bottom 20%",            // End the animation when the bottom of .left-container reaches 20% of the viewport
+    toggleActions: "play none none reverse", // Play the animation forward when entering, reverse when leaving
+  }
+});
+
+// Slide up the entire .left-content
+tlFour.from(".left-content", {
+  y: 100,         // Slide up from 100px below
+  opacity: 0,     // Start from 0 opacity (invisible)
+  duration: 1,    // Duration of the animation
+  ease: "power2.out" // Easing for smooth animation
+})
+
+// Add a 2-second delay and then show the .centered-text
+  .from(".centered-text", {
+    y: 50,         // Slide up from 50px below
+    opacity: 0,    // Start from 0 opacity (invisible)
+    duration: 1,   // Duration of the animation
+    ease: "power2.out" // Easing for smooth animation
+  }, "+=.1");       // "+=
+
+//right container animation fade in
+
+tlFour.from(".right-content", {
+  opacity: 0,             // Start fully transparent
+  duration: 1.5,          // Duration of the fade-in effect
+  ease: "power2.out",     // Easing for smooth animation
+});
 
 //project pinned lateral animation
 
@@ -342,7 +410,8 @@ gsap.registerPlugin(ScrollTrigger);
   const marqueeWidth = document.querySelector(".marquee-content").offsetWidth;
   const viewportWidth = window.innerWidth;
 
-  gsap.to(".marquee-content", 
+
+  gsap.to(".marquee-content",
     {
     x: -(marqueeWidth + viewportWidth),
     ease: "none",
@@ -358,11 +427,11 @@ gsap.registerPlugin(ScrollTrigger);
   const marqueeContentTwo = document.querySelector(".marquee-content-two");
   const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
   const viewportWidthTwo = window.innerWidth;
-  const firstWordWidth = 2000;  // Estimate or measure the width of the first word
+  const firstWordWidthTwo = 1310;  // Estimate or measure the width of the first word
   
   gsap.fromTo(".marquee-content-two", 
     {
-      x: viewportWidthTwo - firstWordWidth,  // Start with the second word in view
+      x: viewportWidthTwo - firstWordWidthTwo,  // Start with the second word in view
     },
     {
       x: +marqueeWidthTwo,  // Continue scrolling until the entire content is out of view
