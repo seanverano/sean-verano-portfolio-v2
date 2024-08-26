@@ -315,7 +315,7 @@ tlFour.from(".left-content", {
     opacity: 0,    // Start from 0 opacity (invisible)
     duration: 1,   // Duration of the animation
     ease: "power2.out" // Easing for smooth animation
-  }, "+=.1");       // "+=
+  }, "+=.1.5");       // "+=
 
 //right container animation fade in
 
@@ -387,6 +387,7 @@ newImgs.forEach(img => {
       }
   });
 });
+
 
 //local time 
 

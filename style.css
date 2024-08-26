@@ -570,11 +570,12 @@ video {
   width: 90vw; /* Width of the card */
   height: 90vh; /* Height of the card */
   border-radius: 0.8rem; /* Border radius for rounded corners */
-  background-color: #191919;
+  background-color: var(--beta);
   background-image: url(assets/images/noisy.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.8;
+  background-position: center;
+  opacity: 1;
   margin-top: 0;/* Adjust opacity for better visibility */
   margin-bottom: 2rem; /* Space between card-contact and card-links */
   padding: 2rem; /* Optional: Add padding for better spacing */
