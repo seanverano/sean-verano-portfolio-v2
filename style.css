@@ -10,6 +10,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+/* LENIS LIBRARY */
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 :root {
   /* fonts */
   --bb: 'BiotifBlack', sans-serif;
@@ -218,7 +240,6 @@ a {
 }
 .name,
 .name-two {
-  text-transform: uppercase;
   position: relative;
   font-family: var(--og);
   font-size: 18vw;
@@ -229,6 +250,7 @@ a {
   padding: 0; 
 }
 .name{
+  text-transform: uppercase;
   color: var(--charlie);
 }
 .header-role {
@@ -264,7 +286,7 @@ a {
   color: var(--beta);
   line-height: 1.125;
   letter-spacing: normal;
-  margin-top: 5vw;
+  margin-top: 2.5vw;
   margin-right: 5vw;
 }
 
