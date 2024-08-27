@@ -41,7 +41,8 @@ html.lenis, html.lenis body {
   /* colors */
   --alpha: #E8E8E8;
   --beta: #0C0C0C;
-  --charlie: #FF4D4D;
+  --charlie: #9d2c2c;
+  --delta: #f2f2f2;
 }
 
 #main.hidden {
@@ -105,7 +106,7 @@ h1{
   justify-content: flex-end;
   align-items: flex-end;
   z-index: 10000;
-  color: var(--alpha);
+  color: var(--delta);
   font-size: 20vw;
   font-weight: 600;
 }
@@ -232,11 +233,14 @@ a {
   flex-wrap: wrap;
 }
 .header-name {
-  margin-top: 8vw;
-  margin-left: 5vw;
+  margin-top: 9vw;
+  margin-left: 9vw;
 }
 .header-name-two {
-  margin-left: 15.5vw;
+  margin-left: 19.5vw;
+  background-color: var(--beta);
+  padding-bottom: 2vw;
+  z-index: 1;
 }
 .name,
 .name-two {
@@ -250,8 +254,13 @@ a {
   padding: 0; 
 }
 .name{
+  z-index: 2;
   text-transform: uppercase;
+  font-size: 22vw;
   color: var(--charlie);
+}
+.name-two{
+  color: var(--delta);
 }
 .header-role {
   width: 100%;
@@ -259,7 +268,7 @@ a {
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
-  margin-top: 2vw;
+  margin-top: 1vw;
 }
 
 .role {
@@ -531,7 +540,7 @@ video {
 }
 .centered-text {
   position: absolute;
-  color: var(--alpha); 
+  color: var(--delta); 
   text-align: left; 
   font-size: 3vw;
   font-family: var(--og);
@@ -634,7 +643,7 @@ video {
 
 .card-contact p, .card-contact h1 {
   margin: 0; 
-  color: var(--alpha); 
+  color: var(--delta); 
 }
 
 .card-contact p {
@@ -834,7 +843,7 @@ input:checked~#show-menu .btn:nth-child(5){
   left: 40%; 
   width: 60%; 
   height: 2px; 
-  background-color: grey; 
+  background-color: var(--beta); 
 }
 
 .info-left, .info-center, .info-right {
@@ -865,7 +874,7 @@ input:checked~#show-menu .btn:nth-child(5){
   right: 40%; 
   width: 60%; 
   height: 2px; 
-  background-color: grey; 
+  background-color: var(--beta); 
 }
 
 
@@ -1011,7 +1020,7 @@ hyphens: auto;
 .exp {
   font-family: var(--bb);
   background-color: var(--charlie);
-  height: 44vh;
+  height: 41vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1035,7 +1044,11 @@ hyphens: auto;
   width: 100%;
 }
 .marquee-content {
-  display: inline-block; }
+  height: 20vh;
+  display: inline-block; 
+  padding: 0;
+  margin: 0;
+}
 
   .marquee-container-two {
     height: 20vh;
@@ -1050,4 +1063,10 @@ hyphens: auto;
     width: 100%;
   }
   .marquee-content-two {
-    display: inline-block; }
+    height: 20vh;
+    display: inline-block; 
+    padding: 0;
+    margin: 0;
+  }
+
+

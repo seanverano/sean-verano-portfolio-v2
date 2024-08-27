@@ -65,10 +65,16 @@ gsap.to(".bar", {
 });
 
 //home/landing page animation
+gsap.from(".header-name-two", {
+  duration: 1.5,   
+  delay: 4,      
+  x: "100%",         
+  ease: "power4.inOut" 
+});
 
 gsap.from([".name", ".name-two"], {
 duration: 1.5, 
-delay: 4,      
+delay: 4.5,      
 y: 700,        
 stagger: {
     amount: 0.5,  
@@ -83,6 +89,7 @@ gsap.from(".role", {
   x: "100%",         
   ease: "power4.inOut" 
 });
+
 
 gsap.from(".role-text", {
   duration: 1.5,   
@@ -242,7 +249,7 @@ const tl = gsap.timeline({
 const words = document.querySelectorAll('.word');
 words.forEach((word, index) => {
   tl.to(word, {
-    color: "#E8E8E8",
+    color: "#f2f2f2",
     duration: 0.3,
     stagger: 0.05,
     ease: "power1.out"
@@ -273,7 +280,7 @@ gsap.registerPlugin(ScrollTrigger);
   const marqueeContentTwo = document.querySelector(".marquee-content-two");
   const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
   const viewportWidthTwo = window.innerWidth;
-  const firstWordWidthTwo = 1310;  
+  const firstWordWidthTwo = 2100;  
   
   gsap.fromTo(".marquee-content-two", 
     {
@@ -317,7 +324,7 @@ ScrollTrigger.create({
 
 gsap.fromTo(".zoom-text",
   {
-    scale: 30,
+    scale: 6,
     opacity: 1,
     color: "#0C0C0C",
     backgroundColor: "#0C0C0C",
@@ -325,7 +332,7 @@ gsap.fromTo(".zoom-text",
   {
     scale: .75,
     duration: 1,
-    color: "#FF4D4D",
+    color: "#9d2c2c",
     backgroundColor: "#E8E8E8",
     scrollTrigger: {
       trigger: "#projects",
@@ -479,7 +486,7 @@ updateLocalTime();
 //test 
 
 
-window.onLoad = () => {
+window.onload = () => {
   initLenis();
   animateBoxes();
 };
