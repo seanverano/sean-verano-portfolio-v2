@@ -747,7 +747,6 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--alpha);
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 1;
@@ -760,6 +759,9 @@ video {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .left-content img {
@@ -774,6 +776,7 @@ video {
   margin: 0;
   padding: 0;
 }
+
 .centered-text {
   position: absolute;
   color: var(--delta); 
@@ -782,6 +785,63 @@ video {
   font-family: var(--og);
   padding: 10%; 
 }
+
+.button-five {
+  flex: 0 1 auto;
+  flex-direction: row;
+  font-family: var(--og);
+  font-size: 2.5vh;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--alpha); 
+  padding: 1.5vh;
+  border: var(--charlie);  
+  border-radius: 50%; 
+  transition: all 0.3s ease;
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 12vw; 
+  height: 12vh; 
+  overflow: hidden; 
+  background-color: var(--charlie); 
+  z-index: 2;
+  margin-top: 25vw;
+}
+
+.text-before-four,
+.text-after-four {
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.text-before-four {
+  transform: translateY(0%);
+}
+
+.text-after-four {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.button-five:hover .text-before-four {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.button-five:hover .text-after-four {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.button-five:hover {
+  color: var(--charlie); 
+  background-color: var(--alpha); 
+  border: var(--charlie); 
+}
+
 
 .left-content img:first-child {
   opacity: 1;
@@ -1299,6 +1359,7 @@ hyphens: auto;
   display: inline-block; 
   padding: 0;
   margin: 0;
+  opacity: 0.5;
 }
 
   .marquee-container-two {
@@ -1318,6 +1379,7 @@ hyphens: auto;
     display: inline-block; 
     padding: 0;
     margin: 0;
+    opacity: 0.5;
   }
 
 
@@ -1337,6 +1399,7 @@ hyphens: auto;
   display: flex; /* Enable Flexbox */
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
+  margin-bottom: 1vw;
 }
 
 .open-marquee h1 {
