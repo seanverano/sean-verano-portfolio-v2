@@ -243,7 +243,6 @@ splitTypes.forEach((char) => {
                 start: 'top 80%',
                 end: 'top 20%',
                 scrub: true,
-
                 toggleActions: 'play play reverse reverse',
             }
         }
