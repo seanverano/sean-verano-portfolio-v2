@@ -27,7 +27,6 @@ function startLoader() {
       if (!startTime) startTime = timestamp;
       let progress = timestamp - startTime;
       
-      // Calculate the progress percentage
       let percent = Math.min(progress / duration, 1);
       currentValue = Math.floor(percent * 100);
       
@@ -126,11 +125,11 @@ tlFive.from(".left-tool-container", {
 .from(".background-text", {
   opacity: 0,
   duration: 1
-}, "<+=0.5")  // Starts 0.5 seconds after .right-tool-container
+}, "<+=0.5")  
 .from(".diff-font", {
   opacity: 0,
   duration: 1
-}, "<+=0.5")  // Starts 0.5 seconds after .background-text
+}, "<+=0.5")  
 .from(".btn-four-container", {
   opacity: 0,
   y: 20,
@@ -178,7 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const toolsSection = document.querySelector(".tools-section");
     const cursor = document.querySelector(".cursor");
 
-    // Combine selectors for the animation target
     const elementsToAnimate = [movingText, toolsSection, movingTextTitle];
 
     elementsToAnimate.forEach(element => {
@@ -211,6 +209,53 @@ document.addEventListener("DOMContentLoaded", () => {
   animateMovingText();
 });
 
+//HOME TO ABOUT TRANSITION
+
+gsap.registerPlugin(ScrollTrigger);
+
+const homeSection = document.querySelector('#home');
+const revealSection = document.querySelector('.reveal-one');
+
+const tlSix = gsap.timeline({
+  scrollTrigger: {
+    trigger: revealSection,
+    start: "top bottom",
+    end: "top center", 
+    scrub: true, 
+    onEnter: () => {
+      gsap.set(revealSection, {visibility: 'visible', opacity: 1});
+    }
+  }
+});
+
+
+tlSix.to(homeSection, {
+  scale: .5, 
+  opacity: 0, 
+  ease: "power2.inOut"
+}, 0); 
+
+tlSix.fromTo(revealSection, {
+  opacity: 1,
+  y: '20%' 
+}, {
+  opacity: 1,
+  y: '0%',
+  ease: "power2.out"
+}, 0); 
+
+
+gsap.set(homeSection, {autoAlpha: 1});
+
+ScrollTrigger.create({
+  trigger: homeSection,
+  start: "top top",
+  end: () => `+=${revealSection.offsetHeight}`,
+  pin: true,
+  pinSpacing: false
+});
+
+
 // About Section Text Animation
 
 gsap.registerPlugin(ScrollTrigger);
@@ -241,7 +286,7 @@ splitTypes.forEach((char) => {
             scrollTrigger: {
                 trigger: char,
                 start: 'top 80%',
-                end: 'top 20%',
+                end: 'top 50%',
                 scrub: true,
                 toggleActions: 'play play reverse reverse',
             }
@@ -300,6 +345,7 @@ gsap.fromTo(".highlight",
 );
 
 // About Section Text Animation
+
 gsap.registerPlugin(ScrollTrigger);
 const navbar = document.querySelector('.main-nav');
 
@@ -389,6 +435,28 @@ ScrollTrigger.create({
   end: "bottom bottom", 
   onLeave: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 })
 });
+
+//TOOL SECTION TO PIN SECTION TRANSITION
+
+gsap.registerPlugin(ScrollTrigger);
+
+const toolsSection = document.querySelector('.tools-section');
+const pinSection = document.querySelector('.pin-section');
+
+gsap.timeline({
+    scrollTrigger: {
+        trigger: pinSection,
+        start: "top bottom", 
+        end: "top top", 
+        scrub: true, 
+        onUpdate: (self) => {
+            const scale = gsap.utils.interpolate(1, 0.8, self.progress);
+            gsap.set(toolsSection, { scale: scale, transformOrigin: "center center" });
+        }
+    }
+});
+
+
 
 // Zoom Text Animation in Projects Section
 
