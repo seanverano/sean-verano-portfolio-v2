@@ -65,6 +65,7 @@ gsap.to(".bar", {
 });
 
 //home/landing page animation
+
 gsap.from(".header-name-two", {
   duration: 1.5,   
   delay: 4,      
@@ -74,7 +75,7 @@ gsap.from(".header-name-two", {
 
 gsap.from([".name", ".name-two"], {
 duration: 1.5, 
-delay: 4.5,      
+delay: 5,      
 y: 700,        
 stagger: {
     amount: 0.5,  
@@ -85,7 +86,7 @@ ease: "power4.inOut"
 
 gsap.from(".role", {
   duration: 1.5,   
-  delay: 5.5,      
+  delay: 6.5,      
   x: "100%",         
   ease: "power4.inOut" 
 });
@@ -93,10 +94,80 @@ gsap.from(".role", {
 
 gsap.from(".role-text", {
   duration: 1.5,   
-  delay: 6.5,         
+  delay: 7,         
   opacity: 0,      
   ease: "power4.inOut" 
 });
+
+//TOOLS AND TECHNOLOGY ANIMATION
+
+gsap.registerPlugin(ScrollTrigger);
+
+const tlFive = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".tools-section",
+        start: "top top",  
+        end: "bottom top", 
+        scrub: 1,
+        pin: true,  
+        anticipatePin: 1  
+    }
+});
+
+tlFive.from(".left-tool-container", {
+    opacity: 0,
+    duration: 1
+})
+.from(".right-tool-container", {
+    opacity: 0,
+    y: 200,
+    duration: 1
+}, "<+=0.5")
+.from(".background-text", {
+  opacity: 0,
+  duration: 1
+}, "<+=0.5")  // Starts 0.5 seconds after .right-tool-container
+.from(".diff-font", {
+  opacity: 0,
+  duration: 1
+}, "<+=0.5")  // Starts 0.5 seconds after .background-text
+.from(".btn-four-container", {
+  opacity: 0,
+  y: 20,
+  duration: 1
+}, "<+=0.5"); 
+
+// TOOLS GRID HOVER ANIMATION
+
+const grid = document.querySelector('.grid'),
+     gridBox = grid.querySelectorAll('.grid_box');
+     
+     animateBoxes = () => {
+      gridBox.forEach((box) => {
+          box.style.filter = 'grayscale(100%)';
+          box.style.transform = 'scale(0.4)';
+  
+          box.addEventListener('mouseenter', () => {
+              gridBox.forEach((otherBox) => {
+                  if (otherBox !== box) {
+                      otherBox.style.filter = 'grayscale(100%)';
+                      otherBox.style.transform = 'scale(0.2)';
+                  } else {
+                      otherBox.style.filter = 'grayscale(0)';
+                      otherBox.style.transform = 'scale(0.6)';
+                  }
+              });
+          });
+  
+          box.addEventListener('mouseleave', () => {
+              gridBox.forEach((otherBox) => {
+                  otherBox.style.filter = 'grayscale(100%)';
+                  otherBox.style.transform = 'scale(0.4)';
+              });
+          });
+      });
+  };
+
 
 // Moving Text Animation
 
@@ -256,7 +327,7 @@ words.forEach((word, index) => {
   }, index * 0.05);
 });
 
-//BACKGROUND/EXPERIENCE MARQUEE
+//BACKGROUND/EXPERIENCE SCROLL MARQUEE
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -280,7 +351,7 @@ gsap.registerPlugin(ScrollTrigger);
   const marqueeContentTwo = document.querySelector(".marquee-content-two");
   const marqueeWidthTwo = marqueeContentTwo.offsetWidth;
   const viewportWidthTwo = window.innerWidth;
-  const firstWordWidthTwo = 2100;  
+  const firstWordWidthTwo = 2630;  
   
   gsap.fromTo(".marquee-content-two", 
     {
@@ -340,6 +411,7 @@ gsap.fromTo(".zoom-text",
       end: "bottom top",
       scrub: true,
       pin: true,
+      anticipatePin: 1 
     }
   }
 );
@@ -423,6 +495,7 @@ const tlThree = gsap.timeline({
     end: "+=300%",
     pin: true,
     scrub: true,
+    anticipatePin: 1 
   }
 });
 
