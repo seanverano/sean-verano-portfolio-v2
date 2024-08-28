@@ -639,6 +639,13 @@ hyphens: auto;
   position: relative;
 }
 
+.left-container {
+    flex: 4;
+}
+
+.right-container {
+    flex: 6;
+}
 .right-content {
   width: 100%;
   position: relative;
@@ -660,7 +667,7 @@ hyphens: auto;
 }
 
 .project-name {
-  color: var(--delta);
+  color: var(--alpha);
   font-family: var(--og);
   font-size: 3vw;
 }
@@ -674,7 +681,7 @@ hyphens: auto;
 .project-video {
   max-width: 90%;
   height: 90%;
-  margin: auto;
+  margin-top: 1vw;
   overflow: hidden; 
 }
 
@@ -683,22 +690,23 @@ video {
 }
 
 .btn-container {
+  margin-top: 0;
   width: 100%;
-    height: 30%;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 1rem;
-    color: var(--delta);
+    color: var(--beta);
 }
 .project-btn {
   height: 5vh;
   width: 9vw;
   font-size: 1.5vw;
   background: transparent;
-  color: var(--delta);
-  border: 2px solid var(--delta);
+  color: var(--alpha);
+  border: 2px solid var(--alpha);
   border-radius: 3px;
   cursor: pointer;
   transition: 0.5s;
@@ -714,7 +722,7 @@ video {
   left: 0;
   width: 0;
   height: 100%;
-  background: var(--delta);
+  background: var(--alpha);
   z-index: -1;
   transition: 0.5s;
 }
@@ -734,7 +742,7 @@ video {
   left: 0;
   width: 100%;
   height: 0;
-  background: var(--delta);
+  background: var(--alpha);
   transition: 0.5s;
   z-index: -1;
 }
@@ -780,8 +788,9 @@ video {
 .centered-text {
   position: absolute;
   color: var(--delta); 
-  text-align: left; 
-  font-size: 3vw;
+  text-align: center;
+  justify-content: center; 
+  font-size: 2.7vw;
   font-family: var(--og);
   padding: 10%; 
 }
