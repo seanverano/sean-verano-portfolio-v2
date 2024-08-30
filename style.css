@@ -120,6 +120,7 @@ h1{
 .preloader-text {
   margin-left: 4vw;
   font-family: var(--bb);
+  color: var(--charlie);
   font-style: none;
   pointer-events: none;
   position: fixed;
@@ -491,7 +492,6 @@ hyphens: auto;
   width: 100%;
   z-index: 2;
   margin-bottom: 1em;
-  margin-top: 1em;
 }
 
 .button-four {
@@ -622,7 +622,7 @@ hyphens: auto;
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: var(--alpha);
+  background-color: var(--delta);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -636,7 +636,7 @@ hyphens: auto;
   height: 100vh;
   overflow: hidden;
   display: flex;
-  background-color: var(--alpha);
+  background-color: var(--delta);
 }
 
 .left-container,
@@ -645,7 +645,7 @@ hyphens: auto;
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background-color: var(--alpha);
+  background-color: var(--delta);
 }
 
 .left-container {
@@ -896,8 +896,8 @@ video {
 /* CONTACT */
 
 #contacts {
-  background-color: var(--alpha);
-  height: 150vh;
+  background-color: var(--delta);
+  height: 100vh;
   width: 100vw;
   margin: 0 auto;
   display: flex;
@@ -941,7 +941,7 @@ video {
   align-items: center;
   width: 100vw; 
   height: 190vh; 
-  background-color: var(--alpha); 
+  background-color: var(--delta); 
   overflow: hidden; 
   margin: 0; 
   padding: 0; 

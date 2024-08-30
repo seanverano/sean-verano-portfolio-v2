@@ -115,26 +115,26 @@ const tlFive = gsap.timeline({
 
 tlFive.from(".left-tool-container", {
     opacity: 0,
-    duration: 1
+    duration: 2
 })
 .from(".right-tool-container", {
     opacity: 0,
     y: 200,
-    duration: 1
-}, "<+=0.5")
+    duration: 2
+}, "<+=1")
 .from(".background-text", {
   opacity: 0,
   duration: 1
-}, "<+=0.5")  
+}, "<+=2")  
 .from(".diff-font", {
   opacity: 0,
   duration: 1
-}, "<+=0.5")  
+}, "<+=1")  
 .from(".btn-four-container", {
   opacity: 0,
   y: 20,
   duration: 1
-}, "<+=0.5"); 
+}, "<+=1"); 
 
 // TOOLS GRID HOVER ANIMATION
 
@@ -517,7 +517,7 @@ gsap.fromTo(".zoom-text",
     scale: .75,
     duration: 1,
     color: "#FF5A4D",
-    backgroundColor: "#ECEFEC",
+    backgroundColor: "#f2f2f2",
     scrollTrigger: {
       trigger: "#projects",
       start: "top top",
