@@ -644,6 +644,27 @@ function updateLocalTime() {
 setInterval(updateLocalTime, 1000); 
 updateLocalTime();
 
+//Footer Roll In Aniamation
+
+gsap.registerPlugin(ScrollTrigger);
+
+const footerAnimation = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".open-marquee-two",
+    start: "bottom bottom", 
+    end: "bottom top", 
+    scrub: true,
+    markers: true, 
+  }
+});
+
+footerAnimation.from(".footer-container", {
+  y: "100%", 
+  rotation: 10, 
+  opacity: 0,
+  ease: "power2.out",
+});
+
 window.onload = () => {
   initLenis();
   animateBoxes();
