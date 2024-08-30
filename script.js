@@ -324,7 +324,7 @@ tlTwo.to(nothighlights, {
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.fromTo(".highlight",
+gsap.fromTo(".highlight-one",
   {
     opacity: 0, 
     y: 20 
@@ -335,7 +335,7 @@ gsap.fromTo(".highlight",
     duration: 0.2,
     ease: "power1.out",
     scrollTrigger: {
-      trigger: ".highlight", 
+      trigger: ".highlight-one", 
       start: "top 70%", 
       end: "top 48%", 
       scrub: true, 
@@ -343,6 +343,47 @@ gsap.fromTo(".highlight",
     }
   }
 );
+
+gsap.fromTo(".highlight-two",
+  {
+    opacity: 0, 
+    y: 20 
+  }, 
+  {
+    opacity: 1,
+    y: 0, 
+    duration: 0.2,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: ".highlight-two", 
+      start: "top 70%", 
+      end: "top 48%", 
+      scrub: true, 
+      toggleActions: "play none none reverse", 
+    }
+  }
+);
+
+gsap.fromTo(".highlight-three",
+  {
+    opacity: 0, 
+    y: 20 
+  }, 
+  {
+    opacity: 1,
+    y: 0, 
+    duration: 0.2,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: ".highlight-three", 
+      start: "top 70%", 
+      end: "top 48%", 
+      scrub: true, 
+      toggleActions: "play none none reverse", 
+    }
+  }
+);
+
 
 // About Section Text Animation
 
@@ -444,16 +485,21 @@ const toolsSection = document.querySelector('.tools-section');
 const pinSection = document.querySelector('.pin-section');
 
 gsap.timeline({
-    scrollTrigger: {
-        trigger: pinSection,
-        start: "top bottom", 
-        end: "top top", 
-        scrub: true, 
-        onUpdate: (self) => {
-            const scale = gsap.utils.interpolate(1, 0.8, self.progress);
-            gsap.set(toolsSection, { scale: scale, transformOrigin: "center center" });
-        }
+  scrollTrigger: {
+    trigger: pinSection,
+    start: "top bottom", 
+    end: "bottom top", 
+    scrub: true, 
+    onUpdate: (self) => {
+      const scale = gsap.utils.interpolate(1, 0.8, self.progress);
+      const borderRadius = gsap.utils.interpolate(0, 90, self.progress);
+      gsap.set(toolsSection, { 
+        scale: scale, 
+        borderRadius: `${borderRadius}px`, 
+        transformOrigin: "center center" 
+      });
     }
+  }
 });
 
 
@@ -470,8 +516,8 @@ gsap.fromTo(".zoom-text",
   {
     scale: .75,
     duration: 1,
-    color: "#9d2c2c",
-    backgroundColor: "#E8E8E8",
+    color: "#FF5A4D",
+    backgroundColor: "#ECEFEC",
     scrollTrigger: {
       trigger: "#projects",
       start: "top top",
@@ -482,32 +528,6 @@ gsap.fromTo(".zoom-text",
     }
   }
 );
-
-//project reverse color animation
-
-gsap.registerPlugin(ScrollTrigger);
-
-
-function animateColors(element) {
-  gsap.to(element, {
-    backgroundColor: "#0c0c0c",  
-    color: "#e8e8e8",            
-    duration: 0.5,              
-  });
-}
-
-function revertColors(element) {
-  gsap.to(element, {
-    backgroundColor: "#e8e8e8",  
-    color: "#0c0c0c",            
-    duration: 0.5,               
-  });
-}
-
-const projectContainer = document.querySelector(".project-container");
-
-projectContainer.addEventListener("mouseover", () => animateColors(projectContainer));
-projectContainer.addEventListener("mouseleave", () => revertColors(projectContainer));
 
 
 // project container left content animation
@@ -551,7 +571,8 @@ tlFour.from(".right-content", {
 gsap.registerPlugin(ScrollTrigger);
 
 const images = gsap.utils.toArray(".left-content img");
-const rightElements = gsap.utils.toArray(".right-content .right-element");
+const rightElements = gsap.utils.toArray(".right-content .right-element-one, .right-content .right-element-two, .right-content .right-element-three");
+
 gsap.set(rightElements, { yPercent: 100, opacity: 1 });
 gsap.set(rightElements[0], { yPercent: 0, opacity: 1 });
 
@@ -562,16 +583,17 @@ const tlThree = gsap.timeline({
     end: "+=300%",
     pin: true,
     scrub: true,
-    anticipatePin: 1 
+    anticipatePin: 1
   }
 });
 
 images.forEach((img, i) => {
-  if (images[i + 1]) {
+  if (rightElements[i + 1]) {
     tlThree.to(rightElements[i], { yPercent: -100 }, "+=0.5")
       .to(rightElements[i + 1], { yPercent: 0 }, "<");
   }
 });
+
 tlThree.to({}, {}, "+=0.5");
 
 //contact section parallax animation
@@ -621,10 +643,6 @@ function updateLocalTime() {
 
 setInterval(updateLocalTime, 1000); 
 updateLocalTime();
-
-  
-//test 
-
 
 window.onload = () => {
   initLenis();
