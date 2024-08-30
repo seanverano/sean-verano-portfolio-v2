@@ -654,7 +654,6 @@ const footerAnimation = gsap.timeline({
     start: "bottom bottom", 
     end: "bottom top", 
     scrub: true,
-    markers: true, 
   }
 });
 
