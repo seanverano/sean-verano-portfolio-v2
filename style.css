@@ -1054,8 +1054,6 @@ video {
   width: 100vw;
   font-family: var(--bb);
   background-color: var(--charlie);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
   display: flex;
   flex-direction: column;
   gap: 20px; 
@@ -1090,86 +1088,44 @@ video {
   align-items: center;
 }
 
-.menu {
-  width: 12vw; 
-  height: 12vw; 
-  border-radius: 50%;
-  position: relative;
+.social-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
- 
+  justify-content: center;
+  height: 20vh;
 }
 
-.btn {
-  width: 2em; 
-  height: 2em; 
-  border-radius: 50%; 
-  position: absolute;
-  overflow: hidden;
+.social-wrapper i {
+  padding: 0px 10px;
+  color: #171717;
   cursor: pointer;
-  background: var(--alpha);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s;
-  
-}
-.menu-btn{
-  border-radius: 50%;
-  height: 16vh;
-  width: 16vw;
-  font-size: 13vh;
-}
-.img-link {
-  background-color: var(--alpha);
-  height: 1.5em;
-  width: 1.5em;
+  transition: all ease-in-out 150ms;
+  text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.7);
 }
 
-.btn:nth-child(1){
-  z-index: 1;
-  transition: 1s;
+.social-wrapper i:hover {
+  margin-top: -10px;  
+  transform: translate(0, -8);
 }
 
-.btn:nth-child(2){transition-delay: 0s;}
-.btn:nth-child(3){transition-delay: .1s;}
-.btn:nth-child(4){transition-delay: .2s;}
-.btn:nth-child(5){transition-delay: .3s;}
-
-input:checked~#show-menu .btn:nth-child(1){
-  transform: translate(-50%, -50%) rotate(225deg);
+#linkedin:hover {
+  color: #0077B5;
+  text-shadow: 0px 16px 10px rgba(0, 160, 220, 0.3);
 }
 
-
-input:checked~#show-menu .btn:nth-child(2){
-  top: -40%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  opacity: 1;
+#github:hover {
+  color: #F5F5DC; 
+  text-shadow: 0px 16px 10px rgba(245, 245, 220, 0.5);
 }
 
-input:checked~#show-menu .btn:nth-child(3){
-  top: 50%;
-  left: -40%;
-  transform: translate(0%, -50%);
-  opacity: 1;
+#email:hover {
+  color: white; 
+  text-shadow: 0px 16px 10px rgba(255, 255, 255, 0.3); 
 }
 
-input:checked~#show-menu .btn:nth-child(4){
-  top: 50%; 
-  left: 106%; 
-  transform: translate(0%, -50%); 
-  opacity: 1;
-}
-input:checked~#show-menu .btn:nth-child(5){
-  top: 140%; 
-  left: 50%; 
-  transform: translate(-50%, -100%); 
-  opacity: 1;
+#gitlab:hover {
+  color: #FCA121; 
+  text-shadow: 0px 16px 10px rgba(252, 161, 33, 0.3);
 }
 
 .bottom-container {
@@ -1467,5 +1423,5 @@ hyphens: auto;
   }
 }
 
-/* test */
+
 
