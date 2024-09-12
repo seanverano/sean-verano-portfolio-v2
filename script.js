@@ -413,7 +413,41 @@ words.forEach((word, index) => {
   }, index * 0.05);
 });
 
-//BACKGROUND/EXPERIENCE SCROLL MARQUEE
+//ABOUT-INTRO
+
+gsap.registerPlugin(ScrollTrigger);
+
+window.addEventListener("load", () => {
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".wrapper",
+        start: "top top",
+        end: "+=150%",
+        pin: true,
+        scrub: true,
+        markers: true
+      }
+    })
+    .to("img", {
+      scale: 2,
+      z: 350,
+      transformOrigin: "center center",
+      ease: "power1.inOut"
+    })
+    .to(
+      ".section.hero",
+      {
+        scale: 1.1,
+        transformOrigin: "center center",
+        ease: "power1.inOut"
+      },
+      "<"
+    );
+});
+
+
+//BACKGROUND/TECHNOLOGY SCROLL MARQUEE
 
 gsap.registerPlugin(ScrollTrigger);
 
