@@ -98,6 +98,9 @@ gsap.from(".role-text", {
   ease: "power4.inOut" 
 });
 
+//ABOUT-INTRO
+
+
 //TOOLS AND TECHNOLOGY ANIMATION
 
 gsap.registerPlugin(ScrollTrigger);
@@ -139,7 +142,7 @@ tlFive.from(".left-tool-container", {
 // TOOLS GRID HOVER ANIMATION
 
 const grid = document.querySelector('.grid'),
-     gridBox = grid.querySelectorAll('.grid_box');
+     gridBox = grid.querySelectorAll('.grid-box');
      
      animateBoxes = () => {
       gridBox.forEach((box) => {
@@ -412,40 +415,6 @@ words.forEach((word, index) => {
     ease: "power1.out"
   }, index * 0.05);
 });
-
-//ABOUT-INTRO
-
-gsap.registerPlugin(ScrollTrigger);
-
-window.addEventListener("load", () => {
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: ".wrapper",
-        start: "top top",
-        end: "+=150%",
-        pin: true,
-        scrub: true,
-        markers: true
-      }
-    })
-    .to("img", {
-      scale: 2,
-      z: 350,
-      transformOrigin: "center center",
-      ease: "power1.inOut"
-    })
-    .to(
-      ".section.hero",
-      {
-        scale: 1.1,
-        transformOrigin: "center center",
-        ease: "power1.inOut"
-      },
-      "<"
-    );
-});
-
 
 //BACKGROUND/TECHNOLOGY SCROLL MARQUEE
 

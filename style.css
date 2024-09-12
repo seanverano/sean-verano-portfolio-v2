@@ -161,7 +161,10 @@ h1{
   height: 100vh;
   width: 100vw;
   background-color: var(--alpha);
+  margin: 0;
+  padding: 0;
 }
+
 nav {
   position: fixed;
   top: 0;
@@ -232,6 +235,7 @@ a {
 }
 
 /* HOME/LANDING PAGE */
+
 .header-name,
 .header-name-two {
   width: 100%;
@@ -357,6 +361,11 @@ hyphens: auto;
   font-family: var(--bb);
   font-size: 2.5vh;
 }
+
+/*ABOUT INTRO*/
+
+
+
 
 #about{
   position: relative;
@@ -566,7 +575,7 @@ hyphens: auto;
   height: 70%;
 }
 
-.grid_wrapper {
+.grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -579,7 +588,7 @@ hyphens: auto;
   'b7 b8 b9';
 }
 
-.grid_box {
+.grid-box {
   width: 100%; 
   height: 100%; 
   position: relative;
@@ -588,7 +597,7 @@ hyphens: auto;
   overflow: hidden;
 }
 
-.grid_box_title {
+.grid-box-title {
   position: absolute;
   left: 0;
   top: 0;
@@ -599,7 +608,7 @@ hyphens: auto;
   z-index: 100;
 }
 
-.grid_box img {
+.grid-box img {
   width: 95%;
   height: 95%;
   object-fit: cover; 
@@ -1335,51 +1344,6 @@ hyphens: auto;
 .not-highlight {
   opacity: 0;
   color: var(--beta);
-}
-
-
-/*ABOUT INTO*/
-
-.wrapper,
-.content {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-}
-
-.content {
-  overflow-x: hidden;
-}
-
-.content .section {
-  width: 100%;
-  height: 100vh;
-}
-
-.content .section.hero {
-  background-image: url(https://images.unsplash.com/photo-1589848315097-ba7b903cc1cc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.image-container {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  perspective: 500px;
-  overflow: hidden;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
 }
 
 /*TECHNOLOGY/BACKGROUND*/
