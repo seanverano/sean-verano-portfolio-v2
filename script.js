@@ -134,13 +134,19 @@ window.addEventListener("load", () => {
   .to(".section.hero", {
     scale: 1.1,
     transformOrigin: "center center",
+    blur: "0px",  
     ease: "power1.inOut"
   }, "<")
+  .fromTo(".section.hero", 
+    { filter: "blur(10px)" },  
+    { filter: "blur(0px)", duration: .5, ease: "power1.inOut" }  
+  )
   .fromTo(".about-title", 
     { opacity: 0 },
     { opacity: 1, duration: 1, ease: "power1.inOut" }
   );
 });
+
 
 
 //TOOLS AND TECHNOLOGY ANIMATION

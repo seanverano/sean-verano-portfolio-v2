@@ -9,5 +9,5 @@
   </defs>
   
   <!-- Background color with mask applied -->
-  <rect width="1920" height="1080" fill="#ECEFEC" mask="url(#holeMask)"/>
+  <rect width="2560" height="1440" fill="#0c0c0c" mask="url(#holeMask)"/>
 </svg>
