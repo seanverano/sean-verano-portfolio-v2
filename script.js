@@ -15,6 +15,18 @@ initLenis = () => {
     requestAnimationFrame(raf);
 };
 
+//will set scrolling behavior to smooth
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
 //preloader animation
 
 function startLoader() {
@@ -86,7 +98,7 @@ ease: "power4.inOut"
 gsap.from(".role", {
   duration: 1.5,   
   delay: 6.5,      
-  x: "100%",         
+  x: "150%",         
   ease: "power4.inOut" 
 });
 
@@ -99,6 +111,8 @@ gsap.from(".role-text", {
 });
 
 //ABOUT-INTRO
+
+
 
 
 //TOOLS AND TECHNOLOGY ANIMATION
@@ -216,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const homeSection = document.querySelector('#home');
+const homeSection = document.querySelector('#about-intro');
 const revealSection = document.querySelector('.reveal-one');
 
 const tlSix = gsap.timeline({
@@ -233,7 +247,7 @@ const tlSix = gsap.timeline({
 
 
 tlSix.to(homeSection, {
-  scale: .5, 
+  scale: .1, 
   opacity: 0, 
   ease: "power2.inOut"
 }, 0); 
@@ -387,34 +401,6 @@ gsap.fromTo(".highlight-three",
   }
 );
 
-
-// About Section Text Animation
-
-gsap.registerPlugin(ScrollTrigger);
-const navbar = document.querySelector('.main-nav');
-
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#about",
-    start: "top top",
-    end: "+=500",
-    scrub: true,
-    pin: true,
-    anticipatePin: 1,
-    onEnter: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 }),
-    onLeaveBack: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 })
-  }
-});
-
-const words = document.querySelectorAll('.word');
-words.forEach((word, index) => {
-  tl.to(word, {
-    color: "#f2f2f2",
-    duration: 0.3,
-    stagger: 0.05,
-    ease: "power1.out"
-  }, index * 0.05);
-});
 
 //BACKGROUND/TECHNOLOGY SCROLL MARQUEE
 

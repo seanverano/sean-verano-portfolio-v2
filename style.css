@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'BiotifBlack'; 
-  src: url('./fonts/Fontspring-DEMO-biotif-black.ttf') format('truetype');
+  src: url('assets/fonts/Fontspring-DEMO-biotif-black.otf') format('truetype');
 }
 
 @font-face {
@@ -78,6 +78,9 @@ body {
   overflow-x: hidden;
   overflow-y: hidden; 
   background-color: var(--alpha); 
+}
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -364,7 +367,6 @@ hyphens: auto;
 }
 
 /*ABOUT INTRO*/
-
 
 
 
@@ -1432,7 +1434,7 @@ hyphens: auto;
   white-space: nowrap;
   opacity: 0.5;
   line-height: 1.5;
-  animation: marquee 600s linear infinite;
+  animation: marquee 420s linear infinite;
 }
 
 .open-marquee-two {
