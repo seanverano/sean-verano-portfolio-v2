@@ -309,7 +309,7 @@ a {
   align-items: center;
   text-align: center;
   font-family: var(--ms);
-  font-size: 2vw;
+  font-size: 1.5vw;
   color: var(--beta);
   line-height: 1.125;
   letter-spacing: normal;
@@ -539,7 +539,7 @@ hyphens: auto;
   font-family: var(--ms);
   font-size: 1.5vw;
   margin-bottom: 1em;
-  margin-top: 1em;
+  margin-top: .25em;
 }
 
 .diff-font {
