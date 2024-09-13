@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <mask id="holeMask">
+      <!-- White rectangle covering the entire SVG -->
+      <rect width="1920" height="1080" fill="white"/>
+      <!-- Black circle for the transparent hole -->
+      <circle cx="960" cy="540" r="200" fill="black"/>
+    </mask>
+  </defs>
+  
+  <!-- Background color with mask applied -->
+  <rect width="1920" height="1080" fill="#ECEFEC" mask="url(#holeMask)"/>
+</svg>

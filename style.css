@@ -368,7 +368,65 @@ hyphens: auto;
 
 /*ABOUT INTRO*/
 
+#about-intro {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
 
+.about-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--og);
+  font-size: 20vw; 
+  color: var(--charlie); 
+  z-index: 2; 
+  opacity: 0;
+}
+
+.wrapper,
+.content {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.content {
+  overflow-x: hidden;
+}
+
+.content .section {
+  width: 100%;
+  height: 100vh;
+}
+
+.content .section.hero {
+  background-image: url(assets/images/about-img-decor.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  perspective: 500px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 #about{
   position: relative;

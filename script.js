@@ -112,7 +112,35 @@ gsap.from(".role-text", {
 
 //ABOUT-INTRO
 
+gsap.registerPlugin(ScrollTrigger);
 
+window.addEventListener("load", () => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".wrapper",
+      start: "top top",
+      end: "+=150%",
+      pin: true,
+      scrub: true,
+    }
+  });
+
+  tl.to(".about-hero-img", {
+    scale: 2,
+    z: 350,
+    transformOrigin: "center center",
+    ease: "power1.inOut"
+  })
+  .to(".section.hero", {
+    scale: 1.1,
+    transformOrigin: "center center",
+    ease: "power1.inOut"
+  }, "<")
+  .fromTo(".about-title", 
+    { opacity: 0 },
+    { opacity: 1, duration: 1, ease: "power1.inOut" }
+  );
+});
 
 
 //TOOLS AND TECHNOLOGY ANIMATION
@@ -248,13 +276,13 @@ const tlSix = gsap.timeline({
 
 tlSix.to(homeSection, {
   scale: .1, 
-  opacity: 0, 
+  opacity: 1, 
   ease: "power2.inOut"
 }, 0); 
 
 tlSix.fromTo(revealSection, {
   opacity: 1,
-  y: '20%' 
+  y: '5%' 
 }, {
   opacity: 1,
   y: '0%',
