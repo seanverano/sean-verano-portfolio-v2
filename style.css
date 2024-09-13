@@ -10,6 +10,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* LENIS LIBRARY */
 
 html.lenis, html.lenis body {
@@ -37,6 +39,7 @@ html.lenis, html.lenis body {
   --bb: 'BiotifBlack', sans-serif;
   --og: 'Overused Grotesk', sans-serif;
   --pf: 'Playfair Display', serif;
+  --ms: 'Montserrat', sans-serif;
 
   /* colors */
   --alpha: #ECEFEC;
@@ -148,7 +151,7 @@ h1{
 }
 .logo2 {
   font-style: italic;
-  font-family: var(--og);
+  font-family: var(--bb);
   font-size: 1.8vh;
 }
 
@@ -305,7 +308,7 @@ a {
   position: relative;
   align-items: center;
   text-align: center;
-  font-family: var(--bb);
+  font-family: var(--ms);
   font-size: 2vw;
   color: var(--beta);
   line-height: 1.125;
@@ -323,7 +326,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-font-family: var(--bb);
+font-family: var(--ms);
 box-sizing: border-box;
 margin: 0;
 }
@@ -380,7 +383,7 @@ hyphens: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--og);
+  font-family: var(--bb);
   font-size: 20vw; 
   color: var(--charlie); 
   z-index: 2; 
@@ -444,7 +447,7 @@ hyphens: auto;
   display: inline-block;
   transition: color 1s;
   text-align: left;
-  font-family: var(--bb);
+  font-family: var(--ms);
   font-size: 2.25vw;
   margin-left: 300px;
   margin-right: 100px;
@@ -533,7 +536,7 @@ hyphens: auto;
   display: flex;
   justify-content: space-evenly;
   text-align: justify;
-  font-family: var(--og);
+  font-family: var(--ms);
   font-size: 1.5vw;
   margin-bottom: 1em;
   margin-top: 1em;
@@ -544,7 +547,7 @@ hyphens: auto;
   display: flex;
   justify-content: center;
   text-align: center;
-  font-family: var(--bb);
+  font-family: var(--og);
   font-size: 1.3vw;
   margin-top: 1vw;
   margin-bottom: .5vw;
@@ -742,7 +745,7 @@ hyphens: auto;
   left: 0;
   right: 0;
   opacity: 0;
-  font-family: var(--bb);
+  font-family: var(--ms);
   background-color: var(--beta);
 }
 
@@ -759,13 +762,13 @@ hyphens: auto;
 }
 .project-name {
   color: var(--beta);
-  font-family: var(--og);
+  font-family: var(--bb);
   font-size: 3vw;
 }
 
 .project-text {
   color: var(--beta);
-  font-family: var(--bb);
+  font-family: var(--ms);
   font-size: 2vw;
 }
 
@@ -790,6 +793,10 @@ video {
   text-align: center;
   gap: 1rem;
   color: var(--beta);
+}
+
+.btn-project-text {
+  font-family: var(--bb);
 }
 
 .project-btn {
@@ -884,7 +891,7 @@ video {
   position: absolute;
   color: var(--delta); 
   text-align: center;
-  justify-content: center; 
+  justify-content: space-around; 
   font-size: 2.7vw;
   font-family: var(--og);
   padding: 10%; 
@@ -958,7 +965,7 @@ video {
 }
 
 .zoom-text {
-  font-family: var(--og);
+  font-family: var(--bb);
   font-size: 20vw; 
   color: var(--charlie); 
   position: relative;
@@ -1002,7 +1009,7 @@ video {
     justify-content: center; 
     font-size: 20vw; 
     color: var(--charlie); 
-    font-family: var(--og); 
+    font-family: var(--bb); 
   }
 }
 
@@ -1130,7 +1137,7 @@ video {
 .card-links {
   height: 100%;
   width: 100%;
-  font-family: var(--bb);
+  font-family: var(--ms);
   background-color: var(--charlie);
   display: flex;
   flex-direction: column;
@@ -1261,6 +1268,7 @@ video {
 
 
 .contact-nav-head h1 {
+  font-family: var(--bb);
   margin: 0;
   flex: 1; 
   text-align: center; 
@@ -1280,7 +1288,7 @@ video {
 }
 
 .button-three {
-  font-family: var(--bb);
+  font-family: var(--ms);
   color: var(--beta); 
   transition: all 0.3s ease;
   position: relative; 
@@ -1355,7 +1363,7 @@ video {
 /* 2ND ABOUT TEXT */
 
 .pin-section {
-  font-family: var(--bb);
+  font-family: var(--ms);
   background-color: var(--alpha);
   color: var(--beta);
   height: 100vh;
@@ -1466,7 +1474,7 @@ hyphens: auto;
 
 /* OPEN FOR PROSPECTS MARQUEE */
 
-.open-marquee, .open-marquee-two {
+.open-marquee {
   background: linear-gradient(45deg, #1D1F20, #2F3031);
   position: absolute;
   width: 100%;
@@ -1484,10 +1492,10 @@ hyphens: auto;
   margin-bottom: 6em;
 }
 
-.open-marquee h1, .open-marquee-two h1 {
+.open-marquee h1 {
   font-size: 1em;
   text-transform: uppercase;
-  font-family: var(--bb);
+  font-family: var(--og);
   color: var(--delta);
   white-space: nowrap;
   opacity: 0.5;
@@ -1495,7 +1503,7 @@ hyphens: auto;
   animation: marquee 420s linear infinite;
 }
 
-.open-marquee-two {
+.open-marquee {
   margin-top: 3em;
   margin-bottom: 3em;
 }

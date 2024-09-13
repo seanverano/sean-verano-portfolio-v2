@@ -673,7 +673,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const footerAnimation = gsap.timeline({
   scrollTrigger: {
-    trigger: ".open-marquee-two",
+    trigger: ".open-marquee",
     start: "bottom bottom", 
     end: "bottom top", 
     scrub: true,
