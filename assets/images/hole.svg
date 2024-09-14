@@ -23,8 +23,8 @@
 
   <!-- Text elements -->
   <text x="300" y="400" font-size="200" fill="white">Curiosity</text>
-  <text x="850" y="550" font-size="100" fill="white">leads</text>
-  <text x="1500" y="950" font-size="100" fill="white">to</text>
-  <text x="1300" y="1150" font-size="200" fill="white">connection.</text>
+  <text x="780" y="550" font-size="100" fill="white">opens</text>
+  <text x="1500" y="950" font-size="100" fill="white">new</text>
+  <text x="1650" y="1150" font-size="200" fill="white">doors.</text>
 </svg>
 
