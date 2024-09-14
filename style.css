@@ -967,7 +967,7 @@ video {
 .left-content img:first-child {
   opacity: 1;
 }
-
+  
 .zoom-text {
   font-family: var(--bb);
   font-size: 20vw; 
