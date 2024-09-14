@@ -968,12 +968,6 @@ video {
   opacity: 1;
 }
 
-.main-nav.hidden {
-  opacity: 0; 
-  visibility: hidden; 
-  transition: opacity 0.3s ease, visibility 0.3s ease; 
-}
-
 .zoom-text {
   font-family: var(--bb);
   font-size: 20vw; 

@@ -213,48 +213,6 @@ const grid = document.querySelector('.grid'),
       });
   };
 
-
-// Moving Text Animation
-
-document.addEventListener("DOMContentLoaded", () => {
-  function animateMovingText() {
-    const movingText = document.querySelector(".moving-text");
-    const movingTextTitle = document.querySelector(".moving-text-title");
-    const toolsSection = document.querySelector(".tools-section");
-    const cursor = document.querySelector(".cursor");
-
-    const elementsToAnimate = [movingText, toolsSection, movingTextTitle];
-
-    elementsToAnimate.forEach(element => {
-      element.addEventListener("mouseenter", () => {
-        gsap.to(cursor, {
-          background: "#E8E8E8",
-        });
-
-        gsap.to(elementsToAnimate, {
-          backgroundColor: "#0C0C0C",
-          color: "#E8E8E8",
-          duration: 0.5,
-        });
-      });
-
-      element.addEventListener("mouseleave", () => {
-        gsap.to(cursor, {
-          background: "#0C0C0C",
-        });
-
-        gsap.to(elementsToAnimate, {
-          backgroundColor: "#E8E8E8",
-          color: "#0C0C0C",
-          duration: 0.5,
-        });
-      });
-    });
-  }
-  
-  animateMovingText();
-});
-
 //HOME TO ABOUT TRANSITION
 
 gsap.registerPlugin(ScrollTrigger);
@@ -476,24 +434,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 //navbar visibility animation
 
-
+// Ensure GSAP and ScrollTrigger are registered
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.create({
-  trigger: ".contact-info",
-  start: "top top", 
-  end: "bottom top", 
-  onEnter: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 }),
-  onLeaveBack: () => gsap.to(navbar, { opacity: 1, visibility: "visible", duration: 0.5 }),
-  once: true 
+document.addEventListener('DOMContentLoaded', function() {
+  const mainNav = document.querySelector('.main-nav');
+
+  ScrollTrigger.create({
+    trigger: "#contacts", 
+    start: "top center",  
+    end: "bottom center", 
+    onEnter: () => gsap.to(mainNav, { opacity: 0, visibility: "hidden", duration: 0.5 }),  
+    onLeaveBack: () => gsap.to(mainNav, { opacity: 1, visibility: "visible", duration: 0.5 }),  
+  });
 });
 
-ScrollTrigger.create({
-  trigger: ".contact-info",
-  start: "top top",
-  end: "bottom bottom", 
-  onLeave: () => gsap.to(navbar, { opacity: 0, visibility: "hidden", duration: 0.5 })
-});
 
 //TOOL SECTION TO PIN SECTION TRANSITION
 
