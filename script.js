@@ -110,6 +110,13 @@ gsap.from(".role-text", {
   ease: "power4.inOut" 
 });
 
+gsap.from(".main-nav", {
+  duration: 1.5,   
+  delay: 8.5,         
+  opacity: 0,      
+  ease: "power4.inOut" 
+});
+
 //ABOUT-INTRO
 
 gsap.registerPlugin(ScrollTrigger);
