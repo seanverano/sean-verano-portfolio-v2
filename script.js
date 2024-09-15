@@ -434,7 +434,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 //navbar visibility animation
 
-// Ensure GSAP and ScrollTrigger are registered
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -449,6 +448,19 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navOne = document.querySelector('.ul-one');
+
+  ScrollTrigger.create({
+    trigger: "#about-intro", 
+    start: "top center",  
+    end: "bottom center", 
+    onEnter: () => gsap.to(navOne, { opacity: 0, visibility: "hidden", duration: 0.5 }),  
+    onLeaveBack: () => gsap.to(navOne, { opacity: 1, visibility: "visible", duration: 0.5 }),  
+  });
+});
 
 //TOOL SECTION TO PIN SECTION TRANSITION
 

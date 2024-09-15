@@ -228,6 +228,7 @@ a {
 }
 
 .main-nav {
+  margin-top: 1rem;
   display: flex;
   z-index: 12;
 }
@@ -238,14 +239,21 @@ a {
 }
 
 .main-nav .ul-two li {
-  margin-left: 1.5em;
+  font-family: var(--og);
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .main-nav .ul-two #border {
-  padding: 0 15px;
+  font-family: var(--og);
   align-items: center;
 }
 
+.ul-one {
+  display: flex;
+  height: 3rem;
+  width: 3rem;
+}
 .ul-two {
   background: rgba(255, 255, 255, 0.1); 
   backdrop-filter: blur(10px); 
@@ -380,7 +388,6 @@ hyphens: auto;
 }
 
 .section-title {
-  font-family: var(--bb);
   font-size: 2.5vh;
 }
 
