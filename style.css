@@ -356,8 +356,8 @@ margin: 0;
 }
 
 .reveal-one {
-border-top-left-radius: 60px;
-border-top-right-radius: 60px;
+border-top-left-radius: 30px;
+border-top-right-radius: 30px;
 width: 100vw;
 height: 150vh;
 background: var(--beta);
@@ -527,7 +527,9 @@ hyphens: auto;
   flex: 6;
   overflow: hidden;
   border-radius: 10px;
+  border: 2px solid var(--delta);
   padding: 20px;
+  background-color: var(--beta);
 }
 
 .right-tool-container::before {
@@ -537,8 +539,8 @@ hyphens: auto;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--beta);
-  background-image: url(assets/images/noisy.svg);
+  background-color: var(--delta);
+  background-image: url(assets/images/box-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -655,7 +657,6 @@ hyphens: auto;
 }
 
 .grid {
-  border: 2px solid var(--delta);
   border-radius: 10px;
   background-color: var(--beta);
   width: 90%;
@@ -912,7 +913,7 @@ video {
 
 .centered-text {
   position: absolute;
-  color: var(--delta); 
+  color: var(--alpha); 
   text-align: center;
   justify-content: space-around; 
   font-size: 2.7vw;
@@ -1060,6 +1061,7 @@ video {
   padding: 2rem; 
   text-align: center; 
   overflow: hidden;
+  background-color: var(--beta);
 }
 
 .card-contact::before {
@@ -1070,11 +1072,11 @@ video {
   right: 0;
   bottom: 0;
   background-color: var(--beta);
-  background-image: url(assets/images/noisy.svg);
+  background-image: url(assets/images/box-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 1;
+  opacity: 0.5; 
   z-index: 1;
 }
 
