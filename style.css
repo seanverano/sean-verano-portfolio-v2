@@ -85,10 +85,6 @@ body {
   background-color: var(--alpha); 
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 h1{
   margin: 0;
   padding: 0;
@@ -983,6 +979,7 @@ video {
 }
   
 .zoom-text {
+  background-color: var(--delta);
   font-family: var(--bb);
   font-size: 20vw; 
   color: var(--charlie); 
