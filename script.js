@@ -99,7 +99,7 @@ gsap.from(".role-text", {
 
 gsap.from(".main-nav", {
   duration: 1.5,
-  delay: 8.5,
+  delay: 8,
   opacity: 0,
   ease: "power4.inOut",
 });
