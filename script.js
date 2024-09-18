@@ -15,6 +15,20 @@ initLenis = () => {
   requestAnimationFrame(raf);
 };
 
+//ensures that the user won't scroll to other sections before the preloader and after the homepage animations
+
+function disableScroll() {
+  document.body.classList.add("no-scroll");
+}
+
+function enableScroll() {
+  document.body.classList.remove("no-scroll");
+}
+
+disableScroll();
+
+setTimeout(enableScroll, 10000);
+
 //preloader animation
 
 function startLoader() {
@@ -104,7 +118,7 @@ gsap.from(".main-nav", {
   ease: "power4.inOut",
 });
 
-//ABOUT-INTRO
+//about-intro zoom animation
 
 gsap.registerPlugin(ScrollTrigger);
 
