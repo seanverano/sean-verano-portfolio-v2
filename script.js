@@ -27,7 +27,7 @@ function enableScroll() {
 
 disableScroll();
 
-setTimeout(enableScroll, 10000);
+setTimeout(enableScroll, 9100);
 
 //preloader animation
 
