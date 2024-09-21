@@ -274,6 +274,14 @@ a {
 
 /* HOME/LANDING PAGE */
 
+.home-container {
+  background-image: url("assets/images/home-container-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
 .header-name,
 .header-name-two {
   width: 100%;
@@ -349,6 +357,7 @@ a {
 }
 
 .scroll-gently {
+  background-color: #ebebeb;
   width: 100%;
   height: 20vh;
 }
