@@ -356,11 +356,6 @@ a {
   margin-right: 5vw;
 }
 
-.scroll-gently {
-  background-color: #ebebeb;
-  width: 100%;
-  height: 20vh;
-}
 section {
   height: 100vh;
   width: 100vw;
@@ -372,6 +367,13 @@ section {
   font-family: var(--ms);
   box-sizing: border-box;
   margin: 0;
+}
+
+.scroll-gently {
+  background-color: #ebebeb;
+  width: 100%;
+  height: 10vh;
+  padding: 0;
 }
 
 .reveal-one {
@@ -1571,6 +1573,11 @@ section p {
 .open-marquee-two {
   margin-top: 3em;
   margin-bottom: 3em;
+}
+
+.open-marquee-two {
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes marquee {
