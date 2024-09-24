@@ -231,7 +231,7 @@ a {
 #btn-one:hover {
   transform: scale(0.97);
   color: var(--beta);
-  background-color: var(--delta);
+  background-color: transparent;
 }
 
 .main-nav {
