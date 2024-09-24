@@ -300,6 +300,9 @@ a {
   z-index: 1;
   margin-left: 20vw;
 }
+.header-name-two i {
+  height: 5vw;
+}
 .name,
 .name-two {
   position: relative;
@@ -320,6 +323,25 @@ a {
   color: var(--delta);
   font-size: 18vw;
 }
+.socials-buttons-two {
+  margin: 0;
+  padding-top: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.socials-buttons-two img {
+  height: 5vw;
+  width: auto;
+  margin-left: 2vw;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.socials-buttons-two img:hover {
+  transform: scale(1.1);
+}
+
 .header-role {
   width: 100%;
   display: flex;
@@ -356,6 +378,10 @@ a {
   margin-right: 5vw;
 }
 
+.role-text i {
+  width: 10rem;
+  height: 10rem;
+}
 section {
   height: 100vh;
   width: 100vw;
@@ -1032,7 +1058,7 @@ section p {
 .zoom-text {
   background-color: var(--delta);
   font-family: var(--bb);
-  font-size: 20vw;
+  font-size: 22vw;
   color: var(--charlie);
   position: relative;
   transform: scale(3);
