@@ -849,12 +849,37 @@ section p {
 .right-element-three {
   background-color: var(--echo);
 }
+
+.project-header {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  padding: 0.4rem;
+  gap: 0.5rem;
+}
+
 .project-name {
+  display: flex;
+  justify-content: center;
   color: var(--beta);
   font-family: var(--bb);
   display: flex;
-  padding: 1rem;
   font-size: 3vw;
+}
+
+.project-tech-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.project-tech {
+  height: 1.5vw;
+  width: auto;
 }
 
 .project-text {
