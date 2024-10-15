@@ -839,15 +839,15 @@ section p {
 }
 
 .right-element-one {
-  background-color: var(--echo);
-}
-
-.right-element-two {
   background-color: var(--fox);
 }
 
-.right-element-three {
+.right-element-two {
   background-color: var(--golf);
+}
+
+.right-element-three {
+  background-color: var(--echo);
 }
 .project-name {
   color: var(--beta);
