@@ -602,28 +602,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const images = gsap.utils.toArray(".left-content img");
 const rightElements = gsap.utils.toArray(
-  ".right-content .right-element-one, .right-content .right-element-two, .right-content .right-element-three"
+  ".right-content .right-element-one, .right-content .right-element-two, .right-content .right-element-three, .right-content .right-element-four, .right-content .right-element-five"
 );
 
-gsap.set(rightElements, { yPercent: 100, opacity: 1 });
+gsap.set(rightElements, { yPercent: 100, opacity: 0 });
 gsap.set(rightElements[0], { yPercent: 0, opacity: 1 });
 
 const tlThree = gsap.timeline({
   scrollTrigger: {
     trigger: ".project-container",
     start: "top top",
-    end: "+=300%",
+    end: "+=500%",
     pin: true,
     scrub: true,
     anticipatePin: 1,
   },
 });
 
-images.forEach((img, i) => {
+rightElements.forEach((element, i) => {
   if (rightElements[i + 1]) {
     tlThree
-      .to(rightElements[i], { yPercent: -100 }, "+=0.5")
-      .to(rightElements[i + 1], { yPercent: 0 }, "<");
+      .to(element, { yPercent: -100, opacity: 0 }, "+=0.5")
+      .to(rightElements[i + 1], { yPercent: 0, opacity: 1 }, "<");
   }
 });
 
